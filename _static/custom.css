@@ -1,0 +1,17 @@
+/* Default spacing between headers is just too much */
+.documentwrapper h1, .documentwrapper h2, .documentwrapper h3, .documentwrapper h4, .documentwrapper h5 {
+    margin: 0.2em 0 !important;
+}
+
+li > p {
+    margin-bottom: 0.2em;
+}
+
+/* Break H3 onto new page - but not for the first H3 after an H2 */
+.documentwrapper h3 {
+    page-break-before: always;
+}
+
+.toctree-wrapper > section:first-of-type > h3 {
+    page-break-before: avoid;
+}

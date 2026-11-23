@@ -1,0 +1,229 @@
+/* SMART help site styling (HTML only; loaded from conf.py).
+   Layout and components follow the Logic+ Online help site (header bar, sidebar
+   with icons and dividers, eyebrow + Updated date, "On this page" panel, home
+   page cards). Colours: LWARE Brand Guidelines v1, SMART palette; the Furo
+   variables are set in conf.py, the extra tokens below.
+   Type: Inter at the Logic+ Online scale (typography.css): body 14, H2 20, H3 18, H4 16.
+   Shapes: buttons and inputs 4px corners, cards 8px. */
+
+:root {
+  --radius-default: 4px;
+  --container-radius: 8px;
+  --header-height: 52px;
+  --smart-blue: #4090ff;
+  --violet-blue: #3d63ae;
+  --midnight-blue: #00203d;
+  --cyan: #00bbf2;
+  --cool-grey: #e2e8ea;
+}
+body[data-theme="light"], body:not([data-theme]) {
+  --c-eyebrow: #1f6ad8;            /* SMART Blue, deepened to pass contrast at 11-12px */
+  --c-button: var(--violet-blue);
+  --c-button-hover: var(--midnight-blue);
+  --c-tint: #eaf1ff;               /* active sidebar item, tags */
+  --c-muted: #526675;
+  --c-page-alt: #f7f9fa;
+  --c-card: #ffffff;
+  --c-focus: var(--midnight-blue);
+}
+body[data-theme="dark"] {
+  --c-eyebrow: var(--smart-blue);
+  --c-button: var(--violet-blue);
+  --c-button-hover: #4f78c8;
+  --c-tint: rgba(64, 144, 255, 0.16);
+  --c-muted: rgba(255, 255, 255, 0.66);
+  --c-page-alt: #021a31;
+  --c-card: #072642;
+  --c-focus: #ffffff;
+}
+.only-dark { display: none; }
+body[data-theme="dark"] .only-dark { display: inline; }
+body[data-theme="dark"] .only-light { display: none; }
+
+/* ── Header bar ── */
+.smart-header {
+  position: sticky; top: 0; z-index: 30;
+  display: flex; align-items: center; gap: 16px;
+  height: var(--header-height); padding: 0 16px 0 20px;
+  background: var(--color-background-primary);
+  border-bottom: 1px solid var(--color-background-border);
+}
+.smart-header-logo img { display: block; height: 20px; width: auto; }
+body[data-theme="dark"] .smart-header-logo img.only-dark { display: block; }
+.smart-header-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.smart-search input {
+  width: 260px; height: 32px; box-sizing: border-box; padding: 0 10px 0 32px;
+  border: 1px solid var(--color-background-border); border-radius: var(--radius-default);
+  background: var(--color-background-primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2371809e' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 10px center;
+  color: var(--color-foreground-primary); font: 14px var(--font-stack);
+}
+.smart-search input:focus { outline: 2px solid var(--c-focus); outline-offset: 0; }
+.smart-theme-toggle, .smart-menu-button {
+  display: inline-grid; place-items: center; width: 32px; height: 32px; box-sizing: border-box;
+  border: 1px solid var(--color-background-border); border-radius: var(--radius-default);
+  background: transparent; color: var(--color-foreground-secondary); cursor: pointer;
+}
+.smart-theme-toggle svg, .smart-menu-button svg { width: 15px; height: 15px; }
+.smart-theme-toggle .icon-sun { display: none; }
+body[data-theme="dark"] .smart-theme-toggle .icon-sun { display: block; }
+body[data-theme="dark"] .smart-theme-toggle .icon-moon { display: none; }
+.smart-menu-button { display: none; border: none; }
+
+/* Buttons — Logic+ components/Button: 4px, 32-36px, semibold 14 */
+.smart-btn, article[role="main"] a.smart-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  height: 32px; padding: 0 12px; box-sizing: border-box;
+  border: 1px solid transparent; border-radius: var(--radius-default);
+  font-size: 14px; font-weight: 600; line-height: 1; white-space: nowrap; text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.smart-btn-primary, article[role="main"] a.smart-btn-primary { background: var(--c-button); color: #fff; }
+.smart-btn-primary:hover, article[role="main"] a.smart-btn-primary:hover { background: var(--c-button-hover); color: #fff; text-decoration: none; }
+.smart-btn-outline, article[role="main"] a.smart-btn-outline { border-color: var(--color-background-border); color: var(--color-foreground-secondary); background: var(--color-background-primary); }
+.smart-btn-outline:hover, article[role="main"] a.smart-btn-outline:hover { border-color: var(--color-foreground-secondary); color: var(--color-foreground-primary); text-decoration: none; }
+.smart-btn:focus-visible, .smart-theme-toggle:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 0; }
+
+/* Furo pieces replaced by the header */
+.mobile-header, .theme-toggle-container, .sidebar-brand, .sidebar-search-container { display: none !important; }
+.sidebar-sticky, .toc-sticky { top: var(--header-height); height: calc(100vh - var(--header-height)); }
+
+/* ── Sidebar: flush left at a fixed width, as on the Logic+ help site ── */
+@media (min-width: 63em) {
+  .sidebar-drawer { width: 18.75em; min-width: 18.75em; justify-content: flex-start; }
+  .sidebar-container { width: 100%; }
+}
+
+/* ── Sidebar: icons, dividers, tinted active item ── */
+.sidebar-drawer { background: var(--color-background-primary); border-right: 1px solid var(--color-background-border); }
+.sidebar-tree { margin: 0; }
+.sidebar-tree .caption { display: none; }
+.smart-home-link { padding-top: 12px; }
+.sidebar-tree .toctree-l1 > .reference {
+  display: flex; align-items: center; gap: 10px;
+  margin: 2px 8px; padding: 8px; border-radius: var(--radius-default);
+  font-size: 14px; font-weight: 500; color: var(--color-foreground-primary);
+}
+.sidebar-tree .toctree-l1 { border-bottom: 1px solid var(--color-background-border); margin: 0 8px; padding: 2px 0; }
+.sidebar-tree .toctree-l1 > .reference { margin: 2px 0; }
+.smart-home-link .toctree-l1, .sidebar-tree .toctree-l1:last-child { border-bottom: none; }
+.sidebar-tree .toctree-l1.current > .reference { background: var(--c-tint); color: var(--color-brand-content); font-weight: 600; }
+.sidebar-tree .reference:hover { background: var(--color-sidebar-item-background--hover); }
+.sidebar-icon { display: inline-flex; flex: none; color: var(--color-foreground-secondary); }
+.sidebar-icon svg { width: 16px; height: 16px; }
+.toctree-l1.current .sidebar-icon { color: var(--color-brand-content); }
+/* Children show only under the current chapter, without expand arrows */
+.sidebar-tree .toctree-l1 > .toctree-checkbox + label { display: none; }
+.sidebar-tree .toctree-l1:not(.current) > ul { display: none; }
+.sidebar-tree .toctree-l1.current > ul { display: block; }
+.sidebar-tree .toctree-l2 > .reference { padding: 6px 8px 6px 34px; font-size: 14px; color: var(--color-foreground-secondary); }
+.sidebar-tree .toctree-l2.current > .reference { color: var(--color-brand-content); font-weight: 600; }
+.sidebar-tree .current-page > .reference { box-shadow: none; }
+
+/* ── Reading pages ── */
+article[role="main"] { font-size: 14px; line-height: 1.6; }
+article[role="main"] h1, article[role="main"] h2,
+article[role="main"] h3, article[role="main"] h4 { color: var(--color-heading); font-weight: 600; letter-spacing: 0; }
+article[role="main"] h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-top: 0; }
+article[role="main"] h2 { font-size: 20px; margin-top: 2.2em; }
+article[role="main"] h3 { font-size: 18px; }
+article[role="main"] h4 { font-size: 16px; }
+article[role="main"] strong { color: var(--color-heading); font-weight: 600; }
+article[role="main"] a { text-decoration: none; }
+article[role="main"] a:hover { text-decoration: underline; }
+.page-eyebrow {
+  display: flex; align-items: center; gap: 8px; margin: 48px 0 8px !important;
+  font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--c-eyebrow);
+}
+.page-updated { font-weight: 400; letter-spacing: 0; text-transform: none; font-size: 12px; color: var(--c-muted); }
+.page-updated::before { content: "·"; margin-right: 8px; }
+
+/* "On this page" panel */
+.toc-title { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--color-foreground-secondary); }
+.toc-tree { border-left: 1px solid var(--color-background-border); font-size: 13px; }
+.toc-tree li.scroll-current > .reference { color: var(--color-brand-content); font-weight: 600; box-shadow: -2px 0 0 var(--color-brand-content); }
+
+/* Screenshots, tables, notes */
+article[role="main"] img { border: 1px solid var(--color-background-border); border-radius: var(--container-radius); }
+article[role="main"] table.docutils { border-radius: var(--container-radius); border-color: var(--color-background-border); box-shadow: none; font-size: 14px; }
+article[role="main"] table.docutils th { background: var(--color-table-header-background); color: var(--color-heading); font-weight: 600; }
+.admonition { border-radius: var(--container-radius); }
+
+/* Screenshot placeholders: "```{admonition} Screenshot" with :class: screenshot-placeholder */
+.admonition.screenshot-placeholder {
+  display: grid; place-items: center; align-content: center; min-height: 140px; padding: 16px; box-shadow: none;
+  border: 1.5px dashed var(--color-background-border); border-left-width: 1.5px;
+  background: var(--c-page-alt); text-align: center; color: var(--c-muted);
+}
+.admonition.screenshot-placeholder > .admonition-title {
+  margin: 0; padding: 0; background: none; font-size: 11px; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase; color: var(--c-eyebrow);
+}
+.admonition.screenshot-placeholder > .admonition-title::before { display: none; }
+.admonition.screenshot-placeholder p { margin: 4px 0 0; font-size: 13px; }
+
+/* ── Home page (index.md) ── */
+/* The page title "SMART" stays for screen readers and the browser tab; the hero replaces it visually */
+body.smart-is-home article[role="main"] > section > h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+body.smart-is-home .toc-drawer { display: none; }
+.smart-hero {
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 32px; align-items: center;
+  margin: 24px 0 32px; padding: 40px; border-radius: var(--container-radius);
+  border: 1px solid var(--color-background-border);
+  /* Crosshatch from the SMART login page */
+  background:
+    repeating-linear-gradient(45deg, transparent 0 15px, color-mix(in srgb, var(--smart-blue) 14%, transparent) 15px 16px),
+    repeating-linear-gradient(135deg, transparent 0 15px, color-mix(in srgb, var(--smart-blue) 14%, transparent) 15px 16px),
+    var(--c-page-alt);
+}
+.smart-hero-eyebrow { margin: 0 0 12px !important; font-size: 12px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--c-eyebrow); }
+article[role="main"] .smart-hero-title { margin: 0 0 16px; font-size: clamp(32px, 4.4vw, 48px); line-height: 1.06; font-weight: 700; letter-spacing: -0.04em; }
+.smart-hero-accent { color: var(--smart-blue); }
+.smart-hero-sub { margin: 0 0 24px !important; max-width: 52ch; font-size: 16px; line-height: 1.5; color: var(--c-muted); }
+.smart-hero-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.smart-hero-art { padding: 16px; border-radius: var(--container-radius); background: var(--c-card); border: 1px solid var(--color-background-border); }
+.smart-hero-art svg { display: block; width: 100%; height: auto; }
+.smart-home-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 24px; }
+.smart-panel { padding: 24px; border-radius: var(--container-radius); border: 1px solid var(--color-background-border); background: var(--c-card); }
+article[role="main"] .smart-panel-title { margin: 0 0 16px; font-size: 18px; font-weight: 600; }
+.smart-modules { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px; }
+article[role="main"] a.smart-module { display: flex; gap: 12px; color: inherit; text-decoration: none; }
+.smart-module-icon { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: var(--container-radius); color: #fff; }
+.smart-module-icon svg { width: 18px; height: 18px; }
+.smart-module strong { display: block; font-size: 16px; font-weight: 600; color: var(--color-heading); }
+.smart-module span.smart-module-text { display: block; font-size: 14px; line-height: 1.45; color: var(--c-muted); }
+article[role="main"] a.smart-module:hover strong { color: var(--color-brand-content); }
+.smart-steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.smart-steps li { counter-increment: step; display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--color-background-border); }
+.smart-steps li:last-child { border-bottom: none; }
+.smart-steps li::before { content: counter(step); display: grid; place-items: center; flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--c-tint); color: var(--color-brand-content); font-size: 12px; font-weight: 600; }
+.smart-steps a { font-size: 14px; font-weight: 600; }
+.smart-steps-intro { margin: -8px 0 12px !important; font-size: 14px; color: var(--c-muted); }
+.smart-help-strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 24px; padding: 20px 24px; border-radius: var(--container-radius); border: 1px solid var(--color-background-border); background: var(--c-page-alt); }
+.smart-help-strip strong { display: block; font-size: 14px; }
+.smart-help-strip span { font-size: 14px; color: var(--c-muted); }
+
+/* Module colours: SMART palette first, then the shared LWARE accents */
+.m-start { background: #1f6ad8; }
+.m-map { background: var(--smart-blue); }
+.m-safety { background: #e0782b; }
+.m-resources { background: var(--violet-blue); }
+.m-zones { background: #0a9fcc; }
+.m-tasks { background: #805ad5; }
+.m-analytics { background: #2f9e6a; }
+.m-admin { background: var(--midnight-blue); }
+body[data-theme="dark"] .m-admin { background: #1d3a5c; }
+.m-reference { background: #526675; }
+
+/* ── Narrow screens: Furo's drawer, our header keeps logo + menu + theme ── */
+@media (max-width: 63em) {
+  .smart-menu-button { display: inline-grid; }
+  .smart-search, .smart-btn { display: none; }
+  .smart-header { padding: 0 12px; gap: 8px; }
+  .sidebar-drawer { top: var(--header-height); }
+  .smart-hero, .smart-home-grid { grid-template-columns: minmax(0, 1fr); }
+  .smart-hero { padding: 24px 16px; }
+  .smart-hero-art { display: none; }
+}
+@media (max-width: 40em) {
+  .smart-modules { grid-template-columns: minmax(0, 1fr); }
+}
