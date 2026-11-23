@@ -161,6 +161,13 @@ article[role="main"] table.docutils th { background: var(--color-table-header-ba
 .admonition.screenshot-placeholder > .admonition-title::before { display: none; }
 .admonition.screenshot-placeholder p { margin: 4px 0 0; font-size: 13px; }
 
+/* "Needs review" boxes on text carried over from the 2024 guide */
+.admonition.needs-review { padding: 8px 12px; border-left: 3px solid #e0782b; box-shadow: none; background: color-mix(in srgb, #e0782b 8%, transparent); font-size: 13px; }
+.admonition.needs-review > .admonition-title { margin: 0 0 2px; padding: 0; background: none; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #b85a12; }
+body[data-theme="dark"] .admonition.needs-review > .admonition-title { color: #f0a060; }
+.admonition.needs-review > .admonition-title::before { display: none; }
+.admonition.needs-review p { margin: 0; }
+
 /* ── Home page (index.md) ── */
 /* The page title "SMART" stays for screen readers and the browser tab; the hero replaces it visually */
 body.smart-is-home article[role="main"] > section > h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
@@ -227,3 +234,9 @@ body[data-theme="dark"] .m-admin { background: #1d3a5c; }
 @media (max-width: 40em) {
   .smart-modules { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Third level (Analytics dashboards under their group) */
+.sidebar-tree .toctree-l2 > ul { margin: 0; padding: 0; list-style: none; }
+.sidebar-tree .toctree-l3 > .reference { padding: 5px 8px 5px 48px; font-size: 13px; color: var(--color-foreground-secondary); }
+.sidebar-tree .toctree-l3.current > .reference { color: var(--color-brand-content); font-weight: 600; }
+.sidebar-tree .toctree-l2 > .toctree-checkbox + label, .sidebar-tree .toctree-l3 > .toctree-checkbox + label { display: none; }

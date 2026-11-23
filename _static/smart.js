@@ -45,7 +45,7 @@
     });
 
     document.querySelectorAll(".sidebar-tree .toctree-l1 > a.reference").forEach(function (a) {
-      var href = a.getAttribute("href") === "#" ? location.pathname : a.getAttribute("href");
+      var href = new URL(a.getAttribute("href"), location.href).pathname;
       var key = a.closest(".smart-home-link") ? "home" : (href.match(/([a-z-]+)\/index\.html/) || [])[1];
       if (ICONS[key]) a.insertAdjacentHTML("afterbegin", '<span class="sidebar-icon">' + ICONS[key] + "</span>");
     });
