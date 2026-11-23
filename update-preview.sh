@@ -5,6 +5,7 @@
 set -eu
 cd "$(dirname "$0")"
 SRC=../smart_docs
+rm -rf "$SRC/build/html"  # clean build: no pages left over from earlier structures
 "$SRC/.venv/Scripts/sphinx-build" -M html "$SRC/docs" "$SRC/build/html" -q
 find . -mindepth 1 -maxdepth 1 ! -name .git ! -name update-preview.sh ! -name README.md -exec rm -rf {} +
 cp -r "$SRC/build/html/html/." .
