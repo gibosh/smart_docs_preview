@@ -44,6 +44,13 @@
       apply(theme);
     });
 
+    // "On this page" button: same icon as the Logic+ site (lines with an arrow pointing in from the right)
+    var tocIcon = document.querySelector(".toc-content-icon");
+    if (tocIcon) {
+      tocIcon.innerHTML = ICON('<path d="M21 6H11"/><path d="M21 12H11"/><path d="M21 18H11"/><path d="m7 8-4 4 4 4"/>');
+      tocIcon.title = "On this page"; tocIcon.setAttribute("aria-label", "On this page");
+    }
+
     // Footer: keep only the copyright line, as on the Logic+ site (drops Furo's "Made with" credit)
     var details = document.querySelector(".bottom-of-page .left-details");
     if (details) [].slice.call(details.childNodes).forEach(function (n) {

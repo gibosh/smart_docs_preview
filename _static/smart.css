@@ -250,9 +250,21 @@ article[role="main"] code.literal { font-size: 0.86em; padding: 2px 5px; border:
 @media (min-width: 82em) { .content { width: 760px; } }
 /* Below that the panel opens from Furo's icon button as a 300px drawer from the right */
 @media (max-width: 82em) {
-  .toc-drawer { width: 300px; right: -300px; }
+  .toc-drawer { width: 300px; right: -300px; padding: 0 20px; box-sizing: border-box; }   /* inset so the guide line shows */
   #__toc:checked ~ .page .toc-drawer { right: 0; }
+  /* The button stays at the top right while scrolling (as on Logic+), styled like the theme toggle */
+  .toc-content-icon {
+    position: fixed; z-index: 40; top: calc(var(--header-height) + 16px); right: 16px;
+    display: grid; place-items: center; width: 32px; height: 32px; box-sizing: border-box;
+    border: 1px solid var(--c-control-border); border-radius: var(--radius-default);
+    background: var(--color-background-primary); color: var(--c-control-text); cursor: pointer;
+  }
+  .toc-content-icon:hover { background: var(--c-control-hover); color: var(--c-control-hover-text); }
+  .toc-content-icon svg { width: 16px; height: 16px; }
+  .content { padding-right: 56px; }   /* keep text clear of the button */
 }
+.toc-tree { padding-left: 0; }   /* links sit on the guide line, so the blue marker joins it */
+.toc-title-container, .toc-title { padding-left: 0; margin-left: 0; }   /* title lines up with the guide line */
 
 /* Screenshot placeholders: "```{admonition} Screenshot" with :class: screenshot-placeholder */
 .admonition.screenshot-placeholder {
