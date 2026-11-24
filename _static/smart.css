@@ -335,3 +335,16 @@ article[role="main"] a.smart-module:hover strong { color: var(--color-brand-cont
 .sidebar-tree .toctree-l3 > .reference { padding: 6px 8px 6px 32px; border-radius: var(--radius-default); font-size: 13px; font-weight: 400; color: var(--c-nav-sub); }
 .sidebar-tree .toctree-l3.current > .reference { color: var(--color-brand-content); font-weight: 500; }
 .sidebar-tree .toctree-l2 > .toctree-checkbox + label, .sidebar-tree .toctree-l3 > .toctree-checkbox + label { display: none; }
+
+/* Footer copyright: 12px subtle grey, as on the Logic+ site */
+.bottom-of-page { font-size: 12px; color: var(--c-subtle); }
+.bottom-of-page .copyright { color: var(--c-subtle); }
+
+/* Previous / Next, as on the Logic+ site: small grey "‹ Previous" / "Next ›" over a blue title */
+.related-pages a { text-decoration: none; }
+.related-pages a:hover .title { text-decoration: underline; }
+.related-pages .furo-related-icon { display: none; }
+.related-pages .page-info .context { font-size: 12px; color: var(--c-subtle); }
+.related-pages .page-info .title { font-size: 14px; font-weight: 500; color: var(--color-brand-content); }
+.related-pages .prev-page .context span::before { content: "‹ "; }
+.related-pages .next-page .context span::after { content: " ›"; }
