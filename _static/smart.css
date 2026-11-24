@@ -32,6 +32,8 @@ body[data-theme="light"], body:not([data-theme]) {
   --c-control-text: #596478;
   --c-control-hover: #e8ebf1;
   --c-control-hover-text: #2d3748;
+  --c-nav: #2d3748;                /* sidebar chapters and their icons (as rendered on Logic+) */
+  --c-nav-sub: #505d6b;            /* sidebar sub-items */
   --c-page-alt: #f7f9fa;
   --c-card: #ffffff;
   --c-focus: var(--midnight-blue);
@@ -49,6 +51,8 @@ body[data-theme="dark"] {
   --c-control-text: rgba(255, 255, 255, 0.8);
   --c-control-hover: rgba(255, 255, 255, 0.09);
   --c-control-hover-text: #ffffff;
+  --c-nav: #ffffff;
+  --c-nav-sub: rgba(255, 255, 255, 0.74);
   --c-page-alt: #021a31;
   --c-card: #072642;
   --c-focus: #ffffff;
@@ -138,14 +142,14 @@ body[data-theme="dark"] .smart-theme-toggle .icon-moon { display: none; }
 .sidebar-tree .toctree-l1 > .reference {
   display: flex; align-items: center; gap: 10px;
   margin: 2px 8px; padding: 8px; border-radius: var(--radius-default);
-  font-size: 14px; font-weight: 500; color: var(--color-foreground-primary);
+  font-size: 14px; font-weight: 500; color: var(--c-nav);
 }
 .sidebar-tree .toctree-l1 { border-bottom: 1px solid var(--color-background-border); margin: 0 8px; padding: 2px 0; }
 .sidebar-tree .toctree-l1 > .reference { margin: 2px 0; }
 .smart-home-link .toctree-l1, .sidebar-tree .toctree-l1:last-child { border-bottom: none; }
-.sidebar-tree .toctree-l1.current > .reference { background: var(--c-tint); color: var(--color-brand-content); font-weight: 500; }
+.sidebar-tree .toctree-l1.current > .reference { background: var(--c-tint); color: var(--color-brand-content); font-weight: 600; }
 .sidebar-tree .reference:hover { background: var(--color-sidebar-item-background--hover); }
-.sidebar-icon { display: inline-flex; flex: none; color: var(--color-foreground-secondary); }
+.sidebar-icon { display: inline-flex; flex: none; color: inherit; }   /* icons match their label */
 .sidebar-icon svg { width: 16px; height: 16px; }
 .toctree-l1.current .sidebar-icon { color: var(--color-brand-content); }
 /* Children show only under the current chapter, without expand arrows */
@@ -153,8 +157,11 @@ body[data-theme="dark"] .smart-theme-toggle .icon-moon { display: none; }
 .sidebar-tree .toctree-l1:not(.current) > ul { display: none; }
 .sidebar-tree .toctree-l1.current > ul { display: block; }
 /* Sub-items: lighter grey; the current one gets the same tint as the current chapter */
-.sidebar-tree .toctree-l2 > .reference { padding: 6px 8px 6px 34px; border-radius: var(--radius-default); font-size: 14px; font-weight: 400; color: var(--c-subtle); }
-.sidebar-tree .toctree-l2.current > .reference { background: var(--c-tint); color: var(--color-brand-content); font-weight: 500; }
+.sidebar-tree .toctree-l2 > .reference { padding: 8px 8px 8px 18px; border-radius: var(--radius-default); font-size: 14px; font-weight: 400; color: var(--c-nav-sub); }
+.sidebar-tree .toctree-l2.current > .reference { color: var(--color-brand-content); font-weight: 500; }
+/* Only the page you are on gets the tint (a group above it is just blue), as on Logic+ */
+.sidebar-tree .current > .reference { background: transparent; }   /* Furo tints every item on the path */
+.sidebar-tree li.current-page:not(.toctree-l1) > .reference { background: var(--c-tint); }
 .sidebar-tree .current-page > .reference { box-shadow: none; }
 
 /* ── Reading pages ── */
@@ -325,6 +332,6 @@ article[role="main"] a.smart-module:hover strong { color: var(--color-brand-cont
 
 /* Third level (Analytics dashboards under their group) */
 .sidebar-tree .toctree-l2 > ul { margin: 0; padding: 0; list-style: none; }
-.sidebar-tree .toctree-l3 > .reference { padding: 5px 8px 5px 48px; border-radius: var(--radius-default); font-size: 13px; font-weight: 400; color: var(--c-subtle); }
-.sidebar-tree .toctree-l3.current > .reference { background: var(--c-tint); color: var(--color-brand-content); font-weight: 500; }
+.sidebar-tree .toctree-l3 > .reference { padding: 6px 8px 6px 32px; border-radius: var(--radius-default); font-size: 13px; font-weight: 400; color: var(--c-nav-sub); }
+.sidebar-tree .toctree-l3.current > .reference { color: var(--color-brand-content); font-weight: 500; }
 .sidebar-tree .toctree-l2 > .toctree-checkbox + label, .sidebar-tree .toctree-l3 > .toctree-checkbox + label { display: none; }
