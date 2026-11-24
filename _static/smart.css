@@ -23,7 +23,11 @@ body[data-theme="light"], body:not([data-theme]) {
   --c-button: var(--violet-blue);
   --c-button-hover: var(--midnight-blue);
   --c-tint: color-mix(in srgb, var(--violet-blue) 9%, #fff);  /* active item, jump highlight, notes */
-  --c-muted: #526675;
+  --c-muted: #526675;              /* the three greys (style reference §2): muted, subtle, table header */
+  --c-subtle: #71809e;
+  --c-th: #596478;
+  --c-code: #f3f5f8;
+  --c-link-hover: var(--midnight-blue);
   --c-page-alt: #f7f9fa;
   --c-card: #ffffff;
   --c-focus: var(--midnight-blue);
@@ -33,6 +37,10 @@ body[data-theme="dark"] {
   --c-button-hover: #4f78c8;
   --c-tint: rgba(64, 144, 255, 0.14);
   --c-muted: rgba(255, 255, 255, 0.66);
+  --c-subtle: rgba(255, 255, 255, 0.52);
+  --c-th: rgba(255, 255, 255, 0.8);
+  --c-code: rgba(255, 255, 255, 0.05);
+  --c-link-hover: #8ab8ff;
   --c-page-alt: #021a31;
   --c-card: #072642;
   --c-focus: #ffffff;
@@ -40,19 +48,6 @@ body[data-theme="dark"] {
 body[data-theme] {
   --c-eyebrow: var(--color-brand-content);
   --color-highlight-on-target: transparent;     /* Furo's persistent yellow; replaced by the fading wash below */
-  /* Notes, tips and plain boxes share the one blue; warnings keep Furo's orange/red */
-  --color-admonition-title: var(--color-brand-content);
-  --color-admonition-title-background: var(--c-tint);
-  --color-admonition-title--note: var(--color-brand-content);
-  --color-admonition-title-background--note: var(--c-tint);
-  --color-admonition-title--tip: var(--color-brand-content);
-  --color-admonition-title-background--tip: var(--c-tint);
-  --color-admonition-title--hint: var(--color-brand-content);
-  --color-admonition-title-background--hint: var(--c-tint);
-  --color-admonition-title--important: var(--color-brand-content);
-  --color-admonition-title-background--important: var(--c-tint);
-  --color-admonition-title--seealso: var(--color-brand-content);
-  --color-admonition-title-background--seealso: var(--c-tint);
 }
 /* Heading you just jumped to: brief blue wash that fades out (as on the Logic+ help site).
    The id sits on the <section>, so the scroll offset goes there: header 52px + 24px. */
@@ -155,19 +150,22 @@ article[role="main"] h2 { font-size: 20px; margin-top: 2.2em; }
 article[role="main"] h3 { font-size: 18px; }
 article[role="main"] h4 { font-size: 16px; }
 article[role="main"] strong { color: var(--color-heading); font-weight: 600; }
-article[role="main"] a { text-decoration: none; }
-article[role="main"] a:hover { text-decoration: underline; }
+/* Body links are underlined: the blue alone is too close to the text colour
+   (WCAG 1.4.1). Buttons, cards, steps and heading anchors stay plain. */
+article[role="main"] a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+article[role="main"] a:hover { color: var(--c-link-hover); }
+article[role="main"] :is(a.smart-btn, a.smart-module, .smart-steps a, a.headerlink) { text-decoration: none; }
 .page-eyebrow {
-  display: flex; align-items: center; gap: 8px; margin: 48px 0 8px !important;
+  display: flex; align-items: center; gap: 8px; margin: 32px 0 8px !important;
   font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--c-eyebrow);
 }
-.page-updated { font-weight: 400; letter-spacing: 0; text-transform: none; font-size: 12px; color: var(--c-muted); }
+.page-updated { font-weight: 400; letter-spacing: 0; text-transform: none; font-size: 12px; color: var(--c-subtle); }
 .page-updated::before { content: "·"; margin-right: 8px; }
 
 /* "On this page" panel, spaced as on the Logic+ help site (12px, 1.4, 5px rows,
    2px marker). Two levels only (sections and sub-sections). The current section
    is marked by smart.js (.smart-toc-active); Furo's own marker is switched off. */
-.toc-title { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--c-muted); }
+.toc-title { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--c-subtle); }
 .toc-tree { border-left: 1px solid var(--color-background-border); font-size: 12px; line-height: 1.4; }
 .toc-tree ul, .toc-tree > ul > li:first-child > ul { padding-left: 0; }
 .toc-tree li { padding-top: 0; }
@@ -180,9 +178,51 @@ article[role="main"] a:hover { text-decoration: underline; }
 
 /* Screenshots, tables, notes */
 article[role="main"] img { border: 1px solid var(--color-background-border); border-radius: var(--container-radius); }
-article[role="main"] table.docutils { border-radius: var(--container-radius); border-color: var(--color-background-border); box-shadow: none; font-size: 14px; }
-article[role="main"] table.docutils th { background: var(--color-table-header-background); color: var(--color-heading); font-weight: 600; }
-.admonition { border-radius: var(--container-radius); }
+/* Tables: framed, row lines only, small uppercase grey header, all left-aligned */
+article[role="main"] table.docutils {
+  width: 100%; border: 1px solid var(--color-background-border); border-radius: var(--container-radius);
+  border-collapse: separate; border-spacing: 0; overflow: hidden; box-shadow: none; font-size: 14px;
+}
+article[role="main"] table.docutils :is(th, td) {
+  border: none; border-bottom: 1px solid var(--color-background-border); text-align: left; vertical-align: middle;
+}
+article[role="main"] table.docutils tr:last-child td { border-bottom: none; }
+article[role="main"] table.docutils th {
+  padding: 8px; background: var(--color-table-header-background); color: var(--c-th);
+  font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+}
+article[role="main"] table.docutils td { padding: 12px 8px; }
+article[role="main"] table.docutils :is(th, td) p { margin: 0; }
+
+/* Inline code */
+article[role="main"] code.literal { font-size: 0.86em; padding: 2px 5px; border: none; border-radius: 4px; background: var(--c-code); }
+
+/* Notes and tips: tinted box, 3px bar on the left, label in bold at the start of
+   the text (no title bar, icon or shadow). Warnings use the same box in orange,
+   errors in red. Screenshot placeholders and "Needs review" have their own style. */
+.admonition:not(.screenshot-placeholder):not(.needs-review) {
+  --note-bar: var(--color-brand-content);
+  padding: 12px 16px; border: none; border-left: 3px solid var(--note-bar); border-radius: 4px;
+  box-shadow: none; background: color-mix(in srgb, var(--note-bar) 10%, transparent); font-size: 14px;
+}
+.admonition:is(.warning, .caution, .attention) { --note-bar: #e0782b; }
+.admonition:is(.danger, .error) { --note-bar: #d9480f; }
+.admonition:not(.screenshot-placeholder):not(.needs-review) > .admonition-title {
+  float: left; margin: 0 4px 0 0; padding: 0; background: none;
+  font-size: inherit; font-weight: 600; line-height: inherit; color: var(--color-heading);
+}
+.admonition:not(.screenshot-placeholder):not(.needs-review) > .admonition-title::before { display: none; }
+.admonition:not(.screenshot-placeholder):not(.needs-review) > .admonition-title::after { content: ":"; }
+.admonition:not(.screenshot-placeholder):not(.needs-review) > :nth-child(2) { margin-top: 0; }
+.admonition:not(.screenshot-placeholder):not(.needs-review) > :last-child { margin-bottom: 0; }
+
+/* Text column: max 760px, left next to the sidebar; "On this page" 48px after it */
+@media (min-width: 82em) { .content { width: 760px; } }
+/* Below that the panel opens from Furo's icon button as a 300px drawer from the right */
+@media (max-width: 82em) {
+  .toc-drawer { width: 300px; right: -300px; }
+  #__toc:checked ~ .page .toc-drawer { right: 0; }
+}
 
 /* Screenshot placeholders: "```{admonition} Screenshot" with :class: screenshot-placeholder */
 .admonition.screenshot-placeholder {
