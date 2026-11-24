@@ -49,5 +49,34 @@
       var key = a.closest(".smart-home-link") ? "home" : (href.match(/([a-z-]+)\/index\.html/) || [])[1];
       if (ICONS[key]) a.insertAdjacentHTML("afterbegin", '<span class="sidebar-icon">' + ICONS[key] + "</span>");
     });
+
+    // 3. "On this page": mark the section being read. Furo's tracker measures from
+    //    its own (hidden) header, so it marked the wrong section; this one measures
+    //    from our sticky header. After a jump to a section, that section stays
+    //    marked until the reader scrolls (the last sections can't reach the top).
+    var links = [].slice.call(document.querySelectorAll(".toc-tree a.reference"));
+    var header = document.querySelector(".smart-header");
+    var locked = false;
+    var shown = function (a) { return a.offsetParent !== null; };
+    var target = function (a) { return a.hash && document.getElementById(decodeURIComponent(a.hash.slice(1))); };
+    function mark(a) { links.forEach(function (l) { l.classList.toggle("smart-toc-active", l === a); }); }
+    function markHash() {
+      var a = links.filter(function (l) { return l.hash && l.hash === location.hash; })[0];
+      while (a && !shown(a)) a = a.parentNode.parentNode.closest("li").querySelector(":scope > a"); // hidden level -> its parent
+      if (a) { mark(a); locked = true; }
+    }
+    function onScroll() {
+      if (locked) return;
+      var line = (header ? header.offsetHeight : 0) + 48, current = null;
+      links.forEach(function (a) { var t = target(a); if (t && shown(a) && t.getBoundingClientRect().top <= line) current = a; });
+      mark(current);
+    }
+    ["wheel", "touchstart", "keydown", "mousedown"].forEach(function (e) {
+      window.addEventListener(e, function () { locked = false; }, { passive: true });
+    });
+    links.forEach(function (a) { a.addEventListener("click", function () { setTimeout(markHash, 0); }); });
+    window.addEventListener("hashchange", markHash);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    if (location.hash) markHash(); else onScroll();
   });
 })();

@@ -16,26 +16,48 @@
   --cyan: #00bbf2;
   --cool-grey: #e2e8ea;
 }
+/* Calm palette: ONE blue (--color-brand-content: Violet Blue in light, SMART Blue
+   in dark) for links, buttons, the eyebrow and "you are here" marks; Midnight for
+   headings; greys for the rest. Orange only for warnings and "Needs review". */
 body[data-theme="light"], body:not([data-theme]) {
-  --c-eyebrow: #1f6ad8;            /* SMART Blue, deepened to pass contrast at 11-12px */
   --c-button: var(--violet-blue);
   --c-button-hover: var(--midnight-blue);
-  --c-tint: #eaf1ff;               /* active sidebar item, tags */
+  --c-tint: color-mix(in srgb, var(--violet-blue) 9%, #fff);  /* active item, jump highlight, notes */
   --c-muted: #526675;
   --c-page-alt: #f7f9fa;
   --c-card: #ffffff;
   --c-focus: var(--midnight-blue);
 }
 body[data-theme="dark"] {
-  --c-eyebrow: var(--smart-blue);
   --c-button: var(--violet-blue);
   --c-button-hover: #4f78c8;
-  --c-tint: rgba(64, 144, 255, 0.16);
+  --c-tint: rgba(64, 144, 255, 0.14);
   --c-muted: rgba(255, 255, 255, 0.66);
   --c-page-alt: #021a31;
   --c-card: #072642;
   --c-focus: #ffffff;
 }
+body[data-theme] {
+  --c-eyebrow: var(--color-brand-content);
+  --color-highlight-on-target: var(--c-tint);   /* was Furo's yellow */
+  /* Notes, tips and plain boxes share the one blue; warnings keep Furo's orange/red */
+  --color-admonition-title: var(--color-brand-content);
+  --color-admonition-title-background: var(--c-tint);
+  --color-admonition-title--note: var(--color-brand-content);
+  --color-admonition-title-background--note: var(--c-tint);
+  --color-admonition-title--tip: var(--color-brand-content);
+  --color-admonition-title-background--tip: var(--c-tint);
+  --color-admonition-title--hint: var(--color-brand-content);
+  --color-admonition-title-background--hint: var(--c-tint);
+  --color-admonition-title--important: var(--color-brand-content);
+  --color-admonition-title-background--important: var(--c-tint);
+  --color-admonition-title--seealso: var(--color-brand-content);
+  --color-admonition-title-background--seealso: var(--c-tint);
+}
+/* Jump highlight: a soft band, not a block */
+article[role="main"] section > span:target ~ h2:first-of-type,
+article[role="main"] section:target > h2, article[role="main"] section:target > h3,
+article[role="main"] section:target > h4 { border-radius: var(--radius-default); }
 .only-dark { display: none; }
 body[data-theme="dark"] .only-dark { display: inline; }
 body[data-theme="dark"] .only-light { display: none; }
@@ -137,10 +159,19 @@ article[role="main"] a:hover { text-decoration: underline; }
 .page-updated { font-weight: 400; letter-spacing: 0; text-transform: none; font-size: 12px; color: var(--c-muted); }
 .page-updated::before { content: "·"; margin-right: 8px; }
 
-/* "On this page" panel */
-.toc-title { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--color-foreground-secondary); }
-.toc-tree { border-left: 1px solid var(--color-background-border); font-size: 13px; }
-.toc-tree li.scroll-current > .reference { color: var(--color-brand-content); font-weight: 600; box-shadow: -2px 0 0 var(--color-brand-content); }
+/* "On this page" panel, spaced as on the Logic+ help site (12px, 1.4, 5px rows,
+   2px marker). Two levels only (sections and sub-sections). The current section
+   is marked by smart.js (.smart-toc-active); Furo's own marker is switched off. */
+.toc-title { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--c-muted); }
+.toc-tree { border-left: 1px solid var(--color-background-border); font-size: 12px; line-height: 1.4; }
+.toc-tree ul, .toc-tree > ul > li:first-child > ul { padding-left: 0; }
+.toc-tree li { padding-top: 0; }
+.toc-tree > ul > li > ul > li > ul > li > ul { display: none; }
+.toc-tree a.reference { display: block; margin-left: -1px; padding: 5px 0 5px 12px; border-left: 2px solid transparent; color: var(--c-muted); font-weight: 400; }
+.toc-tree > ul > li > ul > li > ul a.reference { padding-left: 24px; }
+.toc-tree a.reference:hover { color: var(--color-heading); }
+.toc-tree li.scroll-current > .reference { color: var(--c-muted); font-weight: 400; }
+.toc-tree a.reference.smart-toc-active { color: var(--color-brand-content); border-left-color: var(--color-brand-content); font-weight: 600; }
 
 /* Screenshots, tables, notes */
 article[role="main"] img { border: 1px solid var(--color-background-border); border-radius: var(--container-radius); }
@@ -178,13 +209,13 @@ body.smart-is-home .toc-drawer { display: none; }
   border: 1px solid var(--color-background-border);
   /* Crosshatch from the SMART login page */
   background:
-    repeating-linear-gradient(45deg, transparent 0 15px, color-mix(in srgb, var(--smart-blue) 14%, transparent) 15px 16px),
-    repeating-linear-gradient(135deg, transparent 0 15px, color-mix(in srgb, var(--smart-blue) 14%, transparent) 15px 16px),
+    repeating-linear-gradient(45deg, transparent 0 15px, color-mix(in srgb, var(--color-foreground-secondary) 9%, transparent) 15px 16px),
+    repeating-linear-gradient(135deg, transparent 0 15px, color-mix(in srgb, var(--color-foreground-secondary) 9%, transparent) 15px 16px),
     var(--c-page-alt);
 }
 .smart-hero-eyebrow { margin: 0 0 12px !important; font-size: 12px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--c-eyebrow); }
 article[role="main"] .smart-hero-title { margin: 0 0 16px; font-size: clamp(32px, 4.4vw, 48px); line-height: 1.06; font-weight: 700; letter-spacing: -0.04em; }
-.smart-hero-accent { color: var(--smart-blue); }
+.smart-hero-accent { color: var(--color-brand-content); }
 .smart-hero-sub { margin: 0 0 24px !important; max-width: 52ch; font-size: 16px; line-height: 1.5; color: var(--c-muted); }
 .smart-hero-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .smart-hero-art { padding: 16px; border-radius: var(--container-radius); background: var(--c-card); border: 1px solid var(--color-background-border); }
@@ -194,7 +225,8 @@ article[role="main"] .smart-hero-title { margin: 0 0 16px; font-size: clamp(32px
 article[role="main"] .smart-panel-title { margin: 0 0 16px; font-size: 18px; font-weight: 600; }
 .smart-modules { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px; }
 article[role="main"] a.smart-module { display: flex; gap: 12px; color: inherit; text-decoration: none; }
-.smart-module-icon { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: var(--container-radius); color: #fff; }
+/* One style for every chapter icon (the chapter name does the work, not a colour) */
+.smart-module-icon { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: var(--container-radius); background: var(--c-tint); color: var(--color-brand-content); }
 .smart-module-icon svg { width: 18px; height: 18px; }
 .smart-module strong { display: block; font-size: 16px; font-weight: 600; color: var(--color-heading); }
 .smart-module span.smart-module-text { display: block; font-size: 14px; line-height: 1.45; color: var(--c-muted); }
@@ -208,18 +240,6 @@ article[role="main"] a.smart-module:hover strong { color: var(--color-brand-cont
 .smart-help-strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 24px; padding: 20px 24px; border-radius: var(--container-radius); border: 1px solid var(--color-background-border); background: var(--c-page-alt); }
 .smart-help-strip strong { display: block; font-size: 14px; }
 .smart-help-strip span { font-size: 14px; color: var(--c-muted); }
-
-/* Module colours: SMART palette first, then the shared LWARE accents */
-.m-start { background: #1f6ad8; }
-.m-map { background: var(--smart-blue); }
-.m-safety { background: #e0782b; }
-.m-resources { background: var(--violet-blue); }
-.m-zones { background: #0a9fcc; }
-.m-tasks { background: #805ad5; }
-.m-analytics { background: #2f9e6a; }
-.m-admin { background: var(--midnight-blue); }
-body[data-theme="dark"] .m-admin { background: #1d3a5c; }
-.m-reference { background: #526675; }
 
 /* ── Narrow screens: Furo's drawer, our header keeps logo + menu + theme ── */
 @media (max-width: 63em) {
