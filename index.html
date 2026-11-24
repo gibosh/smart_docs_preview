@@ -12,7 +12,7 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-    <link rel="stylesheet" type="text/css" href="_static/smart.css?v=57276667" />
+    <link rel="stylesheet" type="text/css" href="_static/smart.css?v=abf2b09e" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -369,39 +369,35 @@
     </div>
   </div>
   <div class="smart-hero-art" aria-hidden="true">
-    <svg viewBox="0 0 320 200" fill="none">
-      <g stroke="currentColor" stroke-opacity=".12" stroke-width="1.2">
-        <path d="M0 150c40-20 80-30 130-18s90 6 120-20 50-30 70-28"/>
-        <path d="M0 120c50-22 90-28 140-14s80 2 110-22 50-30 70-28"/>
-        <path d="M0 88c50-20 100-22 150-10s70-6 100-26 50-24 70-22"/>
-        <path d="M0 56c60-16 110-14 150-4s70-10 100-26 50-18 70-16"/>
-      </g>
-      <path d="M48 64l70-14 34 46-58 26z" fill="#4090FF" fill-opacity=".18" stroke="#4090FF" stroke-width="1.6"/>
-      <path d="M186 108l68-10 16 52-74 12z" fill="#e0782b" fill-opacity=".12" stroke="#e0782b" stroke-width="1.6" stroke-dasharray="5 4"/>
-      <path d="M70 150c22-14 40-30 62-38s44-6 60-24 36-28 66-30" stroke="#3D63AE" stroke-width="2" stroke-dasharray="1 5" stroke-linecap="round"/>
-      <circle cx="258" cy="58" r="6" fill="#3D63AE"/><circle cx="258" cy="58" r="12" stroke="#3D63AE" stroke-opacity=".35" stroke-width="2"/>
-      <circle cx="96" cy="84" r="5" fill="#4090FF"/><circle cx="122" cy="98" r="5" fill="#4090FF"/><circle cx="216" cy="130" r="5" fill="#4090FF"/>
-      <rect x="12" y="180" width="296" height="6" rx="3" fill="currentColor" fill-opacity=".1"/>
-      <rect x="12" y="180" width="188" height="6" rx="3" fill="#4090FF"/>
-      <circle cx="200" cy="183" r="7" fill="#fff" stroke="#3D63AE" stroke-width="2"/>
+    <!-- A site from above: structures, a workzone, an exclusion zone with an alert, people and plant with trails, and the replay timeline -->
+    <svg viewBox="0 0 360 220" fill="none">
+      <g class="sa-grid"><path d="M0 40H360M0 80H360M0 120H360M0 160H360M60 0V180M120 0V180M180 0V180M240 0V180M300 0V180"/></g>
+      <path class="sa-road" d="M-4 132 C60 120 110 150 170 136 S280 96 364 108"/>
+      <g class="sa-bldg"><rect x="28" y="22" width="64" height="44" rx="3"/><path d="M28 37H92M28 51H92"/><rect x="270" y="128" width="62" height="38" rx="3"/><path d="M270 147H332"/></g>
+      <path class="sa-work" d="M118 30 L214 22 L228 92 L132 104 Z"/>
+      <path class="sa-excl" d="M246 30 L320 40 L312 100 L238 92 Z"/>
+      <path class="sa-trail" d="M40 156 C70 140 96 120 126 112 S170 84 186 64"/>
+      <path class="sa-trail" d="M196 168 C214 150 236 120 252 112 S268 82 278 68"/>
+      <circle class="sa-dot" cx="186" cy="64" r="5"/><circle class="sa-dot" cx="150" cy="52" r="5"/><circle class="sa-dot" cx="172" cy="84" r="5"/><circle class="sa-dot" cx="60" cy="96" r="5"/>
+      <rect class="sa-plant" x="96" y="140" width="12" height="12" rx="2"/><rect class="sa-plant" x="214" y="140" width="12" height="12" rx="2"/>
+      <circle class="sa-ring" cx="278" cy="68" r="12"/><circle class="sa-alert" cx="278" cy="68" r="5.5"/>
+      <g class="sa-timeline"><circle class="sa-play-bg" cx="22" cy="200" r="10"/><path class="sa-play" d="M19 195 L27 200 L19 205 Z"/><rect class="sa-track" x="42" y="197" width="300" height="6" rx="3"/><rect class="sa-progress" x="42" y="197" width="196" height="6" rx="3"/><path class="sa-tick" d="M150 194v12M266 194v12"/><circle class="sa-thumb" cx="238" cy="200" r="7"/></g>
     </svg>
   </div>
 </section>
 <div class="smart-home-grid">
   <section class="smart-panel">
-    <h2 class="smart-panel-title">Chapters</h2>
+    <h2 class="smart-panel-title">Modules</h2>
     <div class="smart-modules">
-      <a class="smart-module" href="map/index.html"><span class="smart-module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></span><span><strong>The Map</strong><span class="smart-module-text">Live, historic and window views, the timeline, layers and filters</span></span></a>
-      <a class="smart-module" href="safety/index.html"><span class="smart-module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></span><span><strong>Safety and Alerts</strong><span class="smart-module-text">Alert rules, contacts, workflows and SOS</span></span></a>
-      <a class="smart-module" href="resources/index.html"><span class="smart-module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span><strong>Resources and Crews</strong><span class="smart-module-text">Find people and equipment, see their roles and group them into crews</span></span></a>
-      <a class="smart-module" href="zones/index.html"><span class="smart-module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg></span><span><strong>Zones and Structures</strong><span class="smart-module-text">Workzones, exclusion zones, alert zones, structures and beacons</span></span></a>
-      <a class="smart-module" href="tasks/index.html"><span class="smart-module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6h8"/><path d="M12 16h6"/><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M8 11h7"/></svg></span><span><strong>Tasks and Schedule</strong><span class="smart-module-text">Upload your schedule and link tasks to the zones where work happens</span></span></a>
-      <a class="smart-module" href="analytics/index.html"><span class="smart-module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v5"/><path d="M16 14.639V21"/><path d="M20 10.656V21"/><path d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15"/><path d="M4 18.463V21"/><path d="M8 14.656V21"/></svg></span><span><strong>Analytics</strong><span class="smart-module-text">Dashboards for hours, utilisation, breaches, weather and data health</span></span></a>
-      <a class="smart-module" href="administration/index.html"><span class="smart-module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></span><span><strong>Administration</strong><span class="smart-module-text">Project settings, devices, users and permissions</span></span></a>
-      <a class="smart-module" href="reference/index.html"><span class="smart-module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span><strong>Reference</strong><span class="smart-module-text">Glossary and troubleshooting</span></span></a>
+      <a class="smart-module" href="map/index.html"><span class="smart-module-icon" style="--accent:#4090ff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></span><span><strong>The Map</strong><span class="smart-module-text">Live, historic and window views, the timeline, layers and filters</span></span></a>
+      <a class="smart-module" href="safety/index.html"><span class="smart-module-icon" style="--accent:#e0563b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></span><span><strong>Safety and Alerts</strong><span class="smart-module-text">Alert rules, contacts, workflows and SOS</span></span></a>
+      <a class="smart-module" href="resources/index.html"><span class="smart-module-icon" style="--accent:#2f9e6e"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span><strong>Resources and Crews</strong><span class="smart-module-text">Find people and equipment, see their roles and group them into crews</span></span></a>
+      <a class="smart-module" href="zones/index.html"><span class="smart-module-icon" style="--accent:#7c5cd6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg></span><span><strong>Zones and Structures</strong><span class="smart-module-text">Workzones, exclusion zones, alert zones, structures and beacons</span></span></a>
+      <a class="smart-module" href="tasks/index.html"><span class="smart-module-icon" style="--accent:#3d63ae"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6h8"/><path d="M12 16h6"/><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M8 11h7"/></svg></span><span><strong>Tasks and Schedule</strong><span class="smart-module-text">Upload your schedule and link tasks to the zones where work happens</span></span></a>
+      <a class="smart-module" href="analytics/index.html"><span class="smart-module-icon" style="--accent:#e8a317"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v5"/><path d="M16 14.639V21"/><path d="M20 10.656V21"/><path d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15"/><path d="M4 18.463V21"/><path d="M8 14.656V21"/></svg></span><span><strong>Analytics</strong><span class="smart-module-text">Dashboards for hours, utilisation, breaches, weather and data health</span></span></a>
     </div>
   </section>
-  <section class="smart-panel">
+  <section class="smart-panel smart-start">
     <h2 class="smart-panel-title">New to SMART?</h2>
     <p class="smart-steps-intro">Five steps from signing in to replaying your first shift.</p>
     <ol class="smart-steps">
@@ -413,9 +409,17 @@
     </ol>
   </section>
 </div>
+<h2 class="smart-section-title">Popular guides</h2>
+<div class="smart-guides">
+  <a class="smart-guide" href="map/index.html#timeline"><span class="sg-art" aria-hidden="true"><svg viewBox="0 0 240 96" fill="none"><path class="sg-trail" d="M30 52 C60 30 90 58 120 40 S170 22 200 34"/><circle class="sg-node" cx="30" cy="52" r="5"/><circle class="sg-node" cx="120" cy="40" r="5"/><circle class="sg-hot" cx="200" cy="34" r="6"/><rect class="sg-soft" x="24" y="72" width="192" height="6" rx="3"/><rect class="sg-line-fill" x="24" y="72" width="120" height="6" rx="3"/><circle class="sg-node" cx="144" cy="75" r="6"/></svg></span><strong>Replay a shift</strong><span>Scrub the timeline to see who was where, and when.</span></a>
+  <a class="smart-guide" href="safety/index.html#alert-management"><span class="sg-art" aria-hidden="true"><svg viewBox="0 0 240 96" fill="none"><rect class="sg-card" x="70" y="12" width="100" height="72" rx="8"/><rect class="sg-soft" x="84" y="26" width="44" height="8" rx="4"/><rect class="sg-on" x="138" y="24" width="20" height="12" rx="6"/><circle class="sg-knob" cx="152" cy="30" r="4"/><rect class="sg-soft" x="84" y="44" width="36" height="8" rx="4"/><rect class="sg-on" x="138" y="42" width="20" height="12" rx="6"/><circle class="sg-knob" cx="152" cy="48" r="4"/><circle class="sg-alert" cx="90" cy="68" r="5"/><rect class="sg-soft" x="102" y="64" width="40" height="8" rx="4"/></svg></span><strong>Set up alert rules</strong><span>Choose what triggers an alert and who hears about it.</span></a>
+  <a class="smart-guide" href="zones/index.html#workzones"><span class="sg-art" aria-hidden="true"><svg viewBox="0 0 240 96" fill="none"><path class="sg-zone" d="M72 22 L160 16 L178 70 L86 80 Z"/><rect class="sg-handle" x="68" y="18" width="8" height="8" rx="2"/><rect class="sg-handle" x="156" y="12" width="8" height="8" rx="2"/><rect class="sg-handle" x="174" y="66" width="8" height="8" rx="2"/><rect class="sg-handle" x="82" y="76" width="8" height="8" rx="2"/><circle class="sg-hot" cx="118" cy="48" r="5"/><circle class="sg-hot" cx="138" cy="40" r="5"/></svg></span><strong>Draw a workzone</strong><span>Mark out where work happens so SMART can track it.</span></a>
+  <a class="smart-guide" href="analytics/index.html"><span class="sg-art" aria-hidden="true"><svg viewBox="0 0 240 96" fill="none"><path class="sg-axis" d="M40 82H200"/><rect class="sg-bar" x="52" y="50" width="16" height="32" rx="2"/><rect class="sg-bar" x="80" y="38" width="16" height="44" rx="2"/><rect class="sg-bar sg-bar-hot" x="108" y="24" width="16" height="58" rx="2"/><rect class="sg-bar" x="136" y="44" width="16" height="38" rx="2"/><rect class="sg-bar" x="164" y="32" width="16" height="50" rx="2"/><path class="sg-trail" d="M60 40 L88 30 L116 16 L144 34 L172 22"/></svg></span><strong>Read the dashboards</strong><span>Hours, utilisation and breaches across your project.</span></a>
+</div>
 <div class="smart-help-strip">
-  <div><strong>Can't find what you need?</strong><span>Our support team can help with SMART questions and access.</span></div>
-  <a class="smart-btn smart-btn-outline" href="mailto:support@lware.com">Contact Support</a>
+  <a href="reference/index.html#glossary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span><strong>Glossary</strong>Workzones, beacons, breaches and other terms explained</span></a>
+  <a href="administration/index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg><span><strong>Administration</strong>Project settings, devices, users and permissions</span></a>
+  <a href="mailto:support@lware.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg><span><strong>Contact support</strong>support@lware.com – we're happy to help</span></a>
 </div>
 </div>
 </div>
