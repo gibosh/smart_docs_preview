@@ -39,7 +39,7 @@ body[data-theme="dark"] {
 }
 body[data-theme] {
   --c-eyebrow: var(--color-brand-content);
-  --color-highlight-on-target: var(--c-tint);   /* was Furo's yellow */
+  --color-highlight-on-target: transparent;     /* Furo's persistent yellow; replaced by the fading wash below */
   /* Notes, tips and plain boxes share the one blue; warnings keep Furo's orange/red */
   --color-admonition-title: var(--color-brand-content);
   --color-admonition-title-background: var(--c-tint);
@@ -54,10 +54,15 @@ body[data-theme] {
   --color-admonition-title--seealso: var(--color-brand-content);
   --color-admonition-title-background--seealso: var(--c-tint);
 }
-/* Jump highlight: a soft band, not a block */
-article[role="main"] section > span:target ~ h2:first-of-type,
-article[role="main"] section:target > h2, article[role="main"] section:target > h3,
-article[role="main"] section:target > h4 { border-radius: var(--radius-default); }
+/* Heading you just jumped to: brief blue wash that fades out (as on the Logic+ help site).
+   The id sits on the <section>, so the scroll offset goes there: header 52px + 24px. */
+section:target { scroll-margin-top: 76px; }
+section:target > :is(h1, h2, h3, h4) { animation: landed 2.2s ease-out; border-radius: 4px; }
+@keyframes landed {
+  0%, 35% { background: color-mix(in srgb, var(--color-brand-content) 14%, transparent);
+            box-shadow: -8px 0 0 color-mix(in srgb, var(--color-brand-content) 14%, transparent); }
+  100%    { background: transparent; box-shadow: none; }
+}
 .only-dark { display: none; }
 body[data-theme="dark"] .only-dark { display: inline; }
 body[data-theme="dark"] .only-light { display: none; }
