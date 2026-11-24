@@ -69,7 +69,7 @@
       if (locked) return;
       var line = (header ? header.offsetHeight : 0) + 48, current = null;
       links.forEach(function (a) { var t = target(a); if (t && shown(a) && t.getBoundingClientRect().top <= line) current = a; });
-      mark(current);
+      mark(current || links.filter(shown)[0]);  // top of the page: first section, as on the Logic+ site
     }
     ["wheel", "touchstart", "keydown", "mousedown"].forEach(function (e) {
       window.addEventListener(e, function () { locked = false; }, { passive: true });

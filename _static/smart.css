@@ -28,6 +28,10 @@ body[data-theme="light"], body:not([data-theme]) {
   --c-th: #596478;
   --c-code: #f3f5f8;
   --c-link-hover: var(--midnight-blue);
+  --c-control-border: #a7b4c3;     /* outline buttons, search, theme toggle (app neutral-300) */
+  --c-control-text: #596478;
+  --c-control-hover: #e8ebf1;
+  --c-control-hover-text: #2d3748;
   --c-page-alt: #f7f9fa;
   --c-card: #ffffff;
   --c-focus: var(--midnight-blue);
@@ -41,6 +45,10 @@ body[data-theme="dark"] {
   --c-th: rgba(255, 255, 255, 0.8);
   --c-code: rgba(255, 255, 255, 0.05);
   --c-link-hover: #8ab8ff;
+  --c-control-border: rgba(255, 255, 255, 0.28);
+  --c-control-text: rgba(255, 255, 255, 0.8);
+  --c-control-hover: rgba(255, 255, 255, 0.09);
+  --c-control-hover-text: #ffffff;
   --c-page-alt: #021a31;
   --c-card: #072642;
   --c-focus: #ffffff;
@@ -51,7 +59,7 @@ body[data-theme] {
 }
 /* Heading you just jumped to: brief blue wash that fades out (as on the Logic+ help site).
    The id sits on the <section>, so the scroll offset goes there: header 52px + 24px. */
-section:target { scroll-margin-top: 76px; }
+section:target { scroll-margin-top: 80px; }
 section:target > :is(h1, h2, h3, h4) { animation: landed 2.2s ease-out; border-radius: 4px; }
 @keyframes landed {
   0%, 35% { background: color-mix(in srgb, var(--color-brand-content) 14%, transparent);
@@ -63,8 +71,11 @@ body[data-theme="dark"] .only-dark { display: inline; }
 body[data-theme="dark"] .only-light { display: none; }
 
 /* ── Header bar ── */
+/* Furo makes body exactly one screen tall, and a sticky header can't outlive its
+   parent, so the header scrolled away after one screen. Let body grow with the page. */
+body { height: auto; min-height: 100%; }
 .smart-header {
-  position: sticky; top: 0; z-index: 30;
+  position: sticky; top: 0; z-index: 60;   /* above Furo's sidebar (30) and "On this page" (50) drawers */
   display: flex; align-items: center; gap: 16px;
   height: var(--header-height); padding: 0 16px 0 20px;
   background: var(--color-background-primary);
@@ -75,17 +86,20 @@ body[data-theme="dark"] .smart-header-logo img.only-dark { display: block; }
 .smart-header-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
 .smart-search input {
   width: 260px; height: 32px; box-sizing: border-box; padding: 0 10px 0 32px;
-  border: 1px solid var(--color-background-border); border-radius: var(--radius-default);
+  border: 1px solid var(--c-control-border); border-radius: var(--radius-default);
   background: var(--color-background-primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2371809e' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 10px center;
   color: var(--color-foreground-primary); font: 14px var(--font-stack);
 }
-.smart-search input:focus { outline: 2px solid var(--c-focus); outline-offset: 0; }
+.smart-search input::placeholder { color: var(--c-subtle); }
+.smart-search input:focus { outline: none; border-color: var(--color-brand-content); }
 .smart-theme-toggle, .smart-menu-button {
   display: inline-grid; place-items: center; width: 32px; height: 32px; box-sizing: border-box;
-  border: 1px solid var(--color-background-border); border-radius: var(--radius-default);
-  background: transparent; color: var(--color-foreground-secondary); cursor: pointer;
+  border: 1px solid var(--c-control-border); border-radius: var(--radius-default);
+  background: transparent; color: var(--c-control-text); cursor: pointer;
+  transition: background 0.15s, color 0.15s;
 }
-.smart-theme-toggle svg, .smart-menu-button svg { width: 15px; height: 15px; }
+.smart-theme-toggle:hover, .smart-menu-button:hover { background: var(--c-control-hover); color: var(--c-control-hover-text); }
+.smart-theme-toggle svg, .smart-menu-button svg { width: 16px; height: 16px; }
 .smart-theme-toggle .icon-sun { display: none; }
 body[data-theme="dark"] .smart-theme-toggle .icon-sun { display: block; }
 body[data-theme="dark"] .smart-theme-toggle .icon-moon { display: none; }
@@ -101,8 +115,9 @@ body[data-theme="dark"] .smart-theme-toggle .icon-moon { display: none; }
 }
 .smart-btn-primary, article[role="main"] a.smart-btn-primary { background: var(--c-button); color: #fff; }
 .smart-btn-primary:hover, article[role="main"] a.smart-btn-primary:hover { background: var(--c-button-hover); color: #fff; text-decoration: none; }
-.smart-btn-outline, article[role="main"] a.smart-btn-outline { border-color: var(--color-background-border); color: var(--color-foreground-secondary); background: var(--color-background-primary); }
-.smart-btn-outline:hover, article[role="main"] a.smart-btn-outline:hover { border-color: var(--color-foreground-secondary); color: var(--color-foreground-primary); text-decoration: none; }
+.smart-btn-outline, article[role="main"] a.smart-btn-outline { border-color: var(--c-control-border); color: var(--c-control-text); background: var(--color-background-primary); }
+.smart-btn-outline:hover, article[role="main"] a.smart-btn-outline:hover { background: var(--c-control-hover); color: var(--c-control-hover-text); text-decoration: none; }
+.smart-hero-actions .smart-btn { height: 36px; }   /* page buttons 36px (app default); header buttons stay 32px */
 .smart-btn:focus-visible, .smart-theme-toggle:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 0; }
 
 /* Furo pieces replaced by the header */
@@ -128,7 +143,7 @@ body[data-theme="dark"] .smart-theme-toggle .icon-moon { display: none; }
 .sidebar-tree .toctree-l1 { border-bottom: 1px solid var(--color-background-border); margin: 0 8px; padding: 2px 0; }
 .sidebar-tree .toctree-l1 > .reference { margin: 2px 0; }
 .smart-home-link .toctree-l1, .sidebar-tree .toctree-l1:last-child { border-bottom: none; }
-.sidebar-tree .toctree-l1.current > .reference { background: var(--c-tint); color: var(--color-brand-content); font-weight: 600; }
+.sidebar-tree .toctree-l1.current > .reference { background: var(--c-tint); color: var(--color-brand-content); font-weight: 500; }
 .sidebar-tree .reference:hover { background: var(--color-sidebar-item-background--hover); }
 .sidebar-icon { display: inline-flex; flex: none; color: var(--color-foreground-secondary); }
 .sidebar-icon svg { width: 16px; height: 16px; }
@@ -137,8 +152,9 @@ body[data-theme="dark"] .smart-theme-toggle .icon-moon { display: none; }
 .sidebar-tree .toctree-l1 > .toctree-checkbox + label { display: none; }
 .sidebar-tree .toctree-l1:not(.current) > ul { display: none; }
 .sidebar-tree .toctree-l1.current > ul { display: block; }
-.sidebar-tree .toctree-l2 > .reference { padding: 6px 8px 6px 34px; font-size: 14px; color: var(--color-foreground-secondary); }
-.sidebar-tree .toctree-l2.current > .reference { color: var(--color-brand-content); font-weight: 600; }
+/* Sub-items: lighter grey; the current one gets the same tint as the current chapter */
+.sidebar-tree .toctree-l2 > .reference { padding: 6px 8px 6px 34px; border-radius: var(--radius-default); font-size: 14px; font-weight: 400; color: var(--c-subtle); }
+.sidebar-tree .toctree-l2.current > .reference { background: var(--c-tint); color: var(--color-brand-content); font-weight: 500; }
 .sidebar-tree .current-page > .reference { box-shadow: none; }
 
 /* ── Reading pages ── */
@@ -177,7 +193,14 @@ article[role="main"] :is(a.smart-btn, a.smart-module, .smart-steps a, a.headerli
 .toc-tree a.reference.smart-toc-active { color: var(--color-brand-content); border-left-color: var(--color-brand-content); font-weight: 600; }
 
 /* Screenshots, tables, notes */
-article[role="main"] img { border: 1px solid var(--color-background-border); border-radius: var(--container-radius); }
+/* Screenshots: rounded; framed only in dark mode (their light backgrounds need an edge on navy) */
+article[role="main"] img { border-radius: var(--container-radius); }
+body[data-theme="dark"] article[role="main"] img { border: 1px solid rgba(255, 255, 255, 0.14); }
+
+/* Dark mode chrome: three steps of navy so the header and sidebar frame the page */
+body[data-theme="dark"] .smart-header { background: var(--midnight-blue); border-bottom-color: rgba(255, 255, 255, 0.1); }
+body[data-theme="dark"] .sidebar-drawer { background: #001a33; border-right-color: rgba(255, 255, 255, 0.06); }
+body[data-theme="dark"] .smart-search input { background-color: rgba(255, 255, 255, 0.06); }
 /* Tables: framed, row lines only, small uppercase grey header, all left-aligned */
 article[role="main"] table.docutils {
   width: 100%; border: 1px solid var(--color-background-border); border-radius: var(--container-radius);
@@ -302,6 +325,6 @@ article[role="main"] a.smart-module:hover strong { color: var(--color-brand-cont
 
 /* Third level (Analytics dashboards under their group) */
 .sidebar-tree .toctree-l2 > ul { margin: 0; padding: 0; list-style: none; }
-.sidebar-tree .toctree-l3 > .reference { padding: 5px 8px 5px 48px; font-size: 13px; color: var(--color-foreground-secondary); }
-.sidebar-tree .toctree-l3.current > .reference { color: var(--color-brand-content); font-weight: 600; }
+.sidebar-tree .toctree-l3 > .reference { padding: 5px 8px 5px 48px; border-radius: var(--radius-default); font-size: 13px; font-weight: 400; color: var(--c-subtle); }
+.sidebar-tree .toctree-l3.current > .reference { background: var(--c-tint); color: var(--color-brand-content); font-weight: 500; }
 .sidebar-tree .toctree-l2 > .toctree-checkbox + label, .sidebar-tree .toctree-l3 > .toctree-checkbox + label { display: none; }
