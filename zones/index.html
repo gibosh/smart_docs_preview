@@ -266,14 +266,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#map-modes">Map modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#timeline">Timeline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#map-layers">Map layers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../map/index.html#map-tools">Map Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map/index.html#map-tools">Map tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#filters-and-search">Filters and search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map/index.html#legend">Legend</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#weather">Weather</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../safety/index.html">Safety and Alerts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../safety/index.html#how-alerts-work">How alerts work</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../safety/index.html#alert-management">Alert Management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../safety/index.html#alert-workflows-and-sos">Alert workflows and SOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../safety/index.html#alert-workflows">Alert workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../safety/index.html#breach-and-sos-history">Breach and SOS history</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../resources/index.html">Resources and Crews</a><ul>
@@ -293,12 +296,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tasks/index.html">Tasks and Schedule</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#uploading-a-schedule">Uploading a schedule</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#schedule-analysis">Schedule Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#reading-the-gantt-chart">Reading the Gantt chart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#assigning-tasks-to-zones">Assigning tasks to zones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#assigning-resources-to-tasks">Assigning resources to tasks</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../analytics/index.html">Analytics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#opening-analytics">Opening Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#choosing-dates-and-resources">Choosing dates and resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#insights">Insights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#project-health">Project Health</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#operations">Operations</a></li>
@@ -316,7 +321,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../reference/index.html#glossary">Glossary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../reference/index.html#troubleshooting">Troubleshooting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/index.html#what-s-new">What’s new</a></li>
 </ul>
 </li>
 </ul>
@@ -350,220 +354,208 @@
         </div>
         <article role="main" id="furo-main-content">
           
-<p class="page-eyebrow"><span>Zones and Structures</span><span class="page-updated">Updated 23 Nov 2026</span></p>
+<p class="page-eyebrow"><span>Zones and Structures</span><span class="page-updated">Updated 24 Nov 2026</span></p>
 <section id="zones-and-structures">
 <h1>Zones and Structures<a class="headerlink" href="#zones-and-structures" title="Link to this heading">¶</a></h1>
-<p>Zones are areas drawn on the map. This page covers workzones (where work happens), exclusion zones (areas to keep out of), alert zones, 3D structures and their floors, and Bluetooth beacons.</p>
+<p>Zones are areas you draw on the map. <strong>Workzones</strong> show where work happens, so SMART can measure time spent in each area and compare it with the schedule. <strong>Exclusion zones</strong> mark places people should stay out of and raise an alert when someone enters. <strong>Alert zones</strong> decide who is contacted when someone raises an SOS inside them. One zone can be all three at once, so you only draw each place once.</p>
+<p>This page also covers 3D <strong>structures</strong>, such as buildings and tanks, and the Bluetooth <strong>beacons</strong> that locate people indoors.</p>
 <section id="workzones">
 <h2>Workzones<a class="headerlink" href="#workzones" title="Link to this heading">¶</a></h2>
-<div class="needs-review admonition">
-<p class="admonition-title">Needs review</p>
-<p>Carried over from the previous guide and not yet checked against the current app.</p>
+<p>Select <strong>Zones</strong> in the navigation panel to open the zone tables. The <strong>Work zones</strong>, <strong>Exclusion zones</strong> and <strong>Alert Zones</strong> tables sit side by side, with a search box above them. Selecting zones on the map limits the tables to those zones; select <strong>Clear</strong> in the banner to show them all again.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Draw zones for stockpiles, laydowns and access points as well as work areas. The more of the site you map, the more SMART can tell you about how people and plant move around it.</p>
 </div>
-<p>Workzones track where work is planned and where resources spend time. Link them
-to your project schedules to compare planned work with actual activity.</p>
-<p>A zone represents one physical place. It can have several types, including work,
-exclusion and alert types together. The same boundary can therefore support work
-tracking and safety alerts without creating duplicate zones.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For best results, map out as many areas as possible. Creating zones for stockpiles, laydowns, and access points can help SMART give you better insights into how people &amp; plant move around your project.</p>
+<div class="screenshot-placeholder admonition">
+<p class="admonition-title">Screenshot</p>
+<p>The Zones screen with the Work zones, Exclusion zones and Alert Zones tables</p>
 </div>
 <section id="creating-workzones">
 <h3>Creating Workzones<a class="headerlink" href="#creating-workzones" title="Link to this heading">¶</a></h3>
-<p>Use <strong>Create Zone</strong> in the <a class="reference internal" href="../map/index.html#map-tools"><span class="std std-ref">drawing map tools</span></a> to
-draw an area, then complete the zone dialog. Enter a name, select at least one
-work type, and choose a parent zone if needed. Additional exclusion or alert
-types can share the same zone. Save the completed zone.</p>
+<ol class="arabic simple">
+<li><p>Select <strong>Map Tools</strong>, then <strong>Create Zone</strong>. Click and drag for a rectangle, or use the polygon button and click to place each corner.</p></li>
+<li><p>When you finish the shape, choose <strong>Work Zone</strong> in the pop-up. (The same pop-up offers <strong>Exclusion Zone</strong> and <strong>Alert Zone</strong>.)</p></li>
+<li><p>In <strong>Create New Work Zone</strong>, enter a <strong>Name</strong> and choose a <strong>Type</strong>. Optionally choose a <strong>Parent Zone</strong> and add up to three links, for example to drawings or permits.</p></li>
+<li><p>Select <strong>Create</strong>.</p></li>
+</ol>
+<div class="screenshot-placeholder admonition">
+<p class="admonition-title">Screenshot</p>
+<p>The Create New Work Zone window</p>
+</div>
+</section>
 <section id="editing-workzones">
-<h4>Editing Workzones<a class="headerlink" href="#editing-workzones" title="Link to this heading">¶</a></h4>
-<p>Select a zone in <strong>Zones Details</strong> and click <strong>Edit Zone</strong>, or use its row menu’s
-<strong>Edit details</strong> action. Changes to the shared boundary or name apply in every
-zone view where that place appears.</p>
+<h3>Editing Workzones<a class="headerlink" href="#editing-workzones" title="Link to this heading">¶</a></h3>
+<p>Select the zone in the <strong>Work zones</strong> table and select <strong>Edit Zone</strong>, or use <strong>Edit details</strong> in the row’s menu. You can also select the zone on the map and choose <strong>Edit work zone</strong> in its pop-up.</p>
+<p>In <strong>Edit Workzone</strong> you can change the name, add a <strong>Short Label</strong>, change the parent and type, update the links and set <strong>Time Phasing</strong>. Turn on <strong>Ignore from recording</strong> for places such as crib rooms and site offices, where time spent shouldn’t count towards recorded hours in Analytics. Changes to a zone’s name or shape show in every table where that zone appears.</p>
+<p>To change the shape, select <strong>Map Tools</strong>, then <strong>Edit Zone</strong>, then the zone. Drag a corner to move it, drag an edge to add a corner, and right-click a corner to remove it. A zone needs at least three sides. Select <strong>Save</strong> when you are done.</p>
+<p>To delete a zone, select it and select <strong>Delete Zone</strong>. If the zone is also an exclusion or alert zone, all of its uses are deleted together.</p>
 </section>
 <section id="uploading-workzones">
-<h4>Uploading Workzones<a class="headerlink" href="#uploading-workzones" title="Link to this heading">¶</a></h4>
-<p>If you have a spatially referenced file or CAD diagram, select <strong>Upload</strong> in
-<strong>Zones Details</strong>, then <strong>Upload work zones</strong>.</p>
-<p>Once the file has been uploaded, select the areas you would like to import and click ‘Create’.</p>
+<h3>Uploading Workzones<a class="headerlink" href="#uploading-workzones" title="Link to this heading">¶</a></h3>
+<p>If your zones already exist in a drawing or GIS file, you can upload them instead of drawing them.</p>
+<ol class="arabic simple">
+<li><p>Select <strong>Upload</strong> above the zone tables, then <strong>Upload work zones</strong>.</p></li>
+<li><p>Choose a file up to 10 MB: GeoJSON (<code class="docutils literal notranslate"><span class="pre">.geojson</span></code>), a zipped shapefile (<code class="docutils literal notranslate"><span class="pre">.zip</span></code> with matching <code class="docutils literal notranslate"><span class="pre">.shp</span></code>, <code class="docutils literal notranslate"><span class="pre">.dbf</span></code> and <code class="docutils literal notranslate"><span class="pre">.prj</span></code> files), or CAD (<code class="docutils literal notranslate"><span class="pre">.dwg</span></code>, <code class="docutils literal notranslate"><span class="pre">.dxf</span></code>). Only closed shapes can become zones.</p></li>
+<li><p>If SMART asks, choose the file’s coordinate system, such as <strong>GDA2020 / MGA zone 55</strong> or <strong>WGS84 (GPS Coordinates)</strong>.</p></li>
+<li><p>Select the areas to import. Choose which file attributes to use for each zone’s name, information, type and links, or use <strong>Set for all</strong> to give every zone the same value. You can also choose one <strong>Parent zone</strong> for them all.</p></li>
+<li><p>Select <strong>Create</strong>.</p></li>
+</ol>
+<p>The uploader is in beta. CAD files import best when converted to GeoJSON first. If a file won’t import, contact <a class="reference external" href="mailto:support&#37;&#52;&#48;lware&#46;com">support<span>&#64;</span>lware<span>&#46;</span>com</a>.</p>
 <div class="screenshot-placeholder admonition">
 <p class="admonition-title">Screenshot</p>
 <p>Selecting which areas to import from a file</p>
 </div>
-<p>The Workzone File Uploader is currently in <em>Beta</em>. Some CAD files might have difficulty importing into SMART. If you encounter problems, please contact us for support.</p>
-</section>
 </section>
 <section id="activity-assignment">
 <h3>Activity Assignment<a class="headerlink" href="#activity-assignment" title="Link to this heading">¶</a></h3>
-<p>Schedule links use P6 activity and resource-assignment codes. After a schedule
-upload, review the <strong>SMART Breakdown Structure</strong> mappings and select the work
-zone for each code. Tasks carrying those codes are associated with the linked
-zone. The work-zone table shows assigned task counts and planned hours from those
-links.</p>
-<p>Choosing a parent zone organizes the places; it does not create schedule links
-for its children. A zone linked to a schedule must retain a work type until its
-schedule assignments are removed.</p>
+<p>Workzones link to your schedule through activity and resource-assignment codes. After you upload a schedule, check the <strong>SMART Breakdown Structure</strong> and choose the workzone for each code. Tasks with those codes are then linked to that zone, and the <strong>Work zones</strong> table shows each zone’s <strong>Assigned task count</strong> and <strong>Scheduled</strong> hours. See <a class="reference internal" href="../tasks/index.html"><span class="std std-doc">Tasks and Schedule</span></a>.</p>
+<p>Linking a parent zone doesn’t link its children. A zone that is linked to a schedule must keep a work type until its links are removed.</p>
 </section>
 <section id="workzone-types">
 <h3>Workzone Types<a class="headerlink" href="#workzone-types" title="Link to this heading">¶</a></h3>
-<p>Open <strong>Zone Types</strong> in Resource Management to add or edit types. Work, exclusion
-and alert types each have their own category tree. Select a parent type when
-adding a more specific classification. These type categories are separate from
-the parent zones used to organize physical places.</p>
-<p>You can rename custom types, change their parent within the same category, adjust
-work-type colours and choose whether each type is included in analytics. A zone
-is included when any of its selected types is enabled for analytics. That setting
-is checked on the selected types, so disabling a parent type does not automatically
-disable its children.</p>
+<p>Zone types group zones for the map, the tables and Analytics. To manage them, open the Main Menu, select <strong>Device Management</strong> under <strong>Project</strong>, then the <strong>Zone Types</strong> tab.</p>
+<p>Work, exclusion and alert types each have their own list. To add a type, enter its name, choose a <strong>Parent type</strong> if it is a more specific kind of an existing type, and select <strong>Add</strong>. You can rename types, change their parent within the same list, set the <strong>Colour</strong> of work types and choose whether each type is counted in Analytics (<strong>Include in analytics</strong>). A zone is counted if any of its types is included. Each type has its own setting, so excluding a parent type doesn’t exclude its children.</p>
+<p>Types are separate from parent zones: a type says what kind of area a zone is, and a parent zone says which larger area it sits in.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For prohibited areas such as safety zones or heritage areas, add an exclusion
-type and configure <a class="reference internal" href="../safety/index.html#alert-management"><span class="std std-ref">breach alert rules</span></a>. A work
-type on its own does not configure those alerts.</p>
+<p>For areas people must stay out of, such as heritage sites, give the zone an exclusion type and set up <a class="reference internal" href="../safety/index.html#alert-management"><span class="std std-ref">alert rules</span></a> for it. A work type on its own doesn’t raise alerts.</p>
 </div>
 </section>
 <section id="time-phased-workzones">
 <h3>Time-Phased Workzones<a class="headerlink" href="#time-phased-workzones" title="Link to this heading">¶</a></h3>
-<p>Workzones can be set to time-phased - only active during a specified time window.</p>
+<p>Some areas only exist for part of the project. Set <strong>Time Phasing</strong> in <strong>Edit Workzone</strong> to control when a zone shows on the map:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>The zone shows</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>None</strong></p></td>
+<td><p>Always</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Manual</strong></p></td>
+<td><p>Between the <strong>Start</strong> and <strong>End</strong> dates you set</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Activities</strong></p></td>
+<td><p>From the start of its first linked task to the finish of its last</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="screenshot-placeholder admonition">
 <p class="admonition-title">Screenshot</p>
-<p>Configuring the time phasing for a specific workzone</p>
+<p>Time Phasing in the Edit Workzone window</p>
 </div>
-<p>You can pick between the following options when editing a workzone:</p>
-<ul class="simple">
-<li><p>None: This workzone will always be displayed on the map.</p></li>
-<li><p>Manual: This workzone will only be displayed on the map during the range you specify.</p></li>
-<li><p>Activities: This workzone will only be active during the range of assigned activities. This workzone will only show up after the first task commences and before the final task finishes.</p></li>
-</ul>
 </section>
 <section id="nested-workzones">
 <h3>Nested Workzones<a class="headerlink" href="#nested-workzones" title="Link to this heading">¶</a></h3>
-<p>Use parent zones to organize broad project regions and individual work areas.
-Work, exclusion and alert zones all offer a parent selection in their editors,
-and a parent can belong to a different category from its child.</p>
-<p>Choose the parent explicitly when creating or editing a zone. Drawing one shape
-inside another does not create that relationship, and selecting a parent does
-not change either boundary or copy alert rules.</p>
-<p>Click on the arrows next to a zone to expand it and see child zones.</p>
+<p>Use parent zones to organise the site into areas and sub-areas, for example a precinct, the buildings in it and the work areas in each building. Work, exclusion and alert zones can all have a parent, and the parent can be a different kind of zone.</p>
+<p>Choose the parent when you create or edit the zone. Drawing one zone inside another doesn’t link them, and choosing a parent doesn’t change either shape or copy any alert rules.</p>
+<p>In the <strong>Work zones</strong> table, select the arrow beside a zone to show its children. Select <strong>Group by type</strong> above the table to group zones by type instead, and <strong>Return to ungrouped</strong> to go back.</p>
 <div class="screenshot-placeholder admonition">
 <p class="admonition-title">Screenshot</p>
-<p>Nested workzones displayed in the table</p>
+<p>Nested workzones in the Work zones table</p>
 </div>
-<p>The work-zone table can show this parent tree or group zones by type. Alert-zone
-lists remain flat, and exclusion-zone lists group by type rather than displaying
-the physical parent tree. The map shows all enabled work zones; use layer and
-type controls to choose what is visible.</p>
 </section>
 <section id="time-in-zones">
 <h3>Time in Zones<a class="headerlink" href="#time-in-zones" title="Link to this heading">¶</a></h3>
-<p>The <strong>Time in zones</strong> report measures time inside each physical zone. Overlapping
-zones each receive their own time: ten minutes inside two zones appears as ten
-minutes for each, while the overall resource total remains ten minutes. Missing
-telemetry is shown as unavailable rather than time outside zones.</p>
-<p>Schedule work attribution uses a separate calculation that favors smaller work
-areas over larger containing areas. Its figures can therefore differ from the
-physical occupancy report.</p>
+<p>The <strong>Time in zones</strong> figures measure how long resources spent inside each zone. Where zones overlap, each zone gets the full time: ten minutes inside two overlapping zones counts as ten minutes for each, while the resource’s own total stays at ten minutes. Gaps in tracking data show as unavailable, not as time outside the zone.</p>
+<p>Schedule comparisons use a different calculation that gives time to the smallest zone a resource is in, so their figures can differ from Time in zones.</p>
 </section>
 </section>
 <section id="exclusion-zones">
 <h2>Exclusion Zones<a class="headerlink" href="#exclusion-zones" title="Link to this heading">¶</a></h2>
-<div class="needs-review admonition">
-<p class="admonition-title">Needs review</p>
-<p>Carried over from the previous guide and not yet checked against the current app.</p>
-</div>
-<p>Exclusion zones can be used to mark out high-risk areas, cultural heritage sites, or environmentally sensitive areas. SMART can be configured to automatically trigger alarms or send alerts when devices enter an Exclusion Zone.</p>
+<p>Exclusion zones mark high-risk, heritage or environmentally sensitive areas. When a tracked resource enters one while an alert rule is active, SMART raises a breach alert and contacts the people on the rule.</p>
 <section id="table">
 <h3>Table<a class="headerlink" href="#table" title="Link to this heading">¶</a></h3>
-<p>The Exclusion Zones table shows all areas currently setup for this project.</p>
-<p>If you need to temporarily turn off alerts for a zone, you can uncheck the Alerts Enabled box.</p>
-<div class="screenshot-placeholder admonition">
-<p class="admonition-title">Screenshot</p>
-<p>Temporarily disabling alerts in an exclusion zone</p>
-</div>
+<p>The <strong>Exclusion zones</strong> table lists each zone with its number of breaches, grouped by type. Expand a zone to see the resources that breached it, and select <strong>Go to breach</strong> to see a breach on the map. Use <strong>Assign to Alert Rule</strong> in a zone’s menu to add a rule without leaving the table.</p>
+<p>To test the alert set-up, select <strong>Simulate exclusion breach</strong> (the lightning button) above the table. See <a class="reference internal" href="../safety/index.html#checking-who-will-be-alerted"><span class="std std-ref">Checking who will be alerted</span></a>.</p>
 <section id="creating-a-zone">
 <h4>Creating a Zone<a class="headerlink" href="#creating-a-zone" title="Link to this heading">¶</a></h4>
-<p>To create a new exclusion zone, click the ‘+ New’ button at the top left of the table. Fill in the details in the dialog.</p>
+<p>Draw the zone with <strong>Create Zone</strong> in <a class="reference internal" href="../map/index.html#map-tools"><span class="std std-ref">Map tools</span></a> and choose <strong>Exclusion Zone</strong> in the pop-up. In <strong>Create New Exclusion Zone</strong>, enter a <strong>Name</strong>, choose a <strong>Type</strong>, and optionally a <strong>Parent Zone</strong>, <strong>Alert Rules</strong> and links. Select <strong>Create</strong>.</p>
+<p>To upload exclusion zones from a file, select <strong>Upload</strong>, then <strong>Upload exclusion zones</strong>. The steps are the same as <a class="reference internal" href="#uploading-workzones">uploading workzones</a>.</p>
 <div class="screenshot-placeholder admonition">
 <p class="admonition-title">Screenshot</p>
-<p>Dialog when creating a new exclusion zone</p>
+<p>The Create New Exclusion Zone window</p>
 </div>
-<p>To start drawing an area on the map, click the ‘Draw’ button. Click each point on the map in order to make a polygon shape. Press enter or click on the first point again to finish the area. Once the area has been drawn, press ‘Create’ to finish your new exclusion zone.</p>
-<p>Exclusion zones can also be created through the <a class="reference internal" href="../map/index.html#map-tools"><span class="std std-ref">drawing map tools</span></a>.</p>
 </section>
 </section>
 <section id="breach-alerts">
 <h3>Breach Alerts<a class="headerlink" href="#breach-alerts" title="Link to this heading">¶</a></h3>
-<p>Use <a class="reference internal" href="../safety/index.html#alert-management"><span class="std std-ref">Alert Management</span></a> to assign alert rules and their contacts to exclusion zones.</p>
+<p>Alert rules decide when a zone raises alerts, who is contacted and which roles are allowed in. Set them up in <a class="reference internal" href="../safety/index.html#alert-management"><span class="std std-ref">Alert Management</span></a>. The coloured dot beside each zone shows whether anyone will be contacted.</p>
 <section id="breach-history">
 <h4>Breach History<a class="headerlink" href="#breach-history" title="Link to this heading">¶</a></h4>
-<p>A comprehensive record of exclusion zone breaches can be found in the <em>Exclusion Logs</em> tab.</p>
+<p>To review past breaches, open <a class="reference internal" href="../analytics/breach-history.html"><span class="std std-doc">Breach History</span></a> in Analytics, or expand a zone in the <strong>Exclusion zones</strong> table.</p>
+<p>To delete a zone together with its breach records, use <strong>Delete zone + breaches</strong> in the zone’s menu. This can’t be undone.</p>
 </section>
-</section>
-<section id="exclusion-rules">
-<h3>Exclusion Rules<a class="headerlink" href="#exclusion-rules" title="Link to this heading">¶</a></h3>
-<p>Each assigned rule controls when alerts are active and which resource roles are exempt. A zone can have multiple rules; an exemption in one rule does not exempt the resource from another active rule.</p>
-<p>Zone colours show the configured recipients across all assigned rules:</p>
-<ul class="simple">
-<li><p>Grey: no alert rule assigned.</p></li>
-<li><p>Yellow: rules assigned, with no contacts.</p></li>
-<li><p>Orange: at least one contact.</p></li>
-<li><p>Red: at least one first responder.</p></li>
-</ul>
-<p>The rule’s schedule controls alert activity. It does not change the zone’s configured colour.</p>
 </section>
 <section id="alarm-buzzer">
 <h3>Alarm Buzzer<a class="headerlink" href="#alarm-buzzer" title="Link to this heading">¶</a></h3>
-<p>Certain SMART tracking devices have an in-built alarm. If these devices breach an exclusion zone, the alarm will be triggered. This produces an audible warning to notify the worker that they need to exit the area.</p>
+<p>Some SMART tracking devices have a built-in alarm. When the wearer enters an exclusion zone, the device sounds a warning so they know to leave.</p>
 </section>
 </section>
 <section id="alert-zones">
 <h2>Alert zones<a class="headerlink" href="#alert-zones" title="Link to this heading">¶</a></h2>
-<p>Draw areas that raise an alert when a resource enters or leaves them.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This section is being written. It will cover:</p>
-<ul class="simple">
-<li><p>Creating and editing an alert zone</p></li>
-<li><p>Linking an alert zone to rules and contacts</p></li>
-</ul>
-</div>
+<p>Alert zones decide who is contacted when someone raises an SOS. When a device’s SOS button is pressed inside an alert zone, SMART contacts the people on the alert rules assigned to that zone.</p>
+<p>To create one, draw it with <strong>Create Zone</strong> in <a class="reference internal" href="../map/index.html#map-tools"><span class="std std-ref">Map tools</span></a> and choose <strong>Alert Zone</strong> in the pop-up. Enter a <strong>Name</strong> and <strong>Types</strong>, and optionally a <strong>Parent Zone</strong> and links, then select <strong>Draw</strong> if you want to change the shape. Assign rules to it in <a class="reference internal" href="../safety/index.html#assigning-rules-to-zones"><span class="std std-ref">Alert Management</span></a>.</p>
+<p>The <strong>Alert Zones</strong> table lists each zone with its number of SOS alerts. Expand a zone to see each SOS, with the resource and time, and select <strong>Go to SOS</strong> to see it on the map. <strong>Simulate alert</strong> (the lightning button) previews who an SOS would reach.</p>
 <div class="screenshot-placeholder admonition">
 <p class="admonition-title">Screenshot</p>
-<p>Alert zones</p>
+<p>The Alert Zones table with a zone expanded</p>
 </div>
 </section>
 <section id="structures-and-floors">
 <h2>Structures and floors<a class="headerlink" href="#structures-and-floors" title="Link to this heading">¶</a></h2>
-<p>Place 3D structures on the map and work with their floors.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This section is being written. It will cover:</p>
+<p>Structures are 3D models of buildings, sheds, tanks and other objects, placed on the map. People inside them show on the right floor, and you can cut the model away to see inside.</p>
+<p>Select <strong>Structures</strong> in the navigation panel to see the <strong>Structures</strong> table and the <strong>Beacons</strong> table.</p>
+<section id="adding-a-structure">
+<h3>Adding a structure<a class="headerlink" href="#adding-a-structure" title="Link to this heading">¶</a></h3>
+<p>You need edit permission to add or change structures.</p>
+<ol class="arabic simple">
+<li><p>Select <strong>Add model</strong>.</p></li>
+<li><p>Choose a <strong>Model source</strong>:</p>
 <ul class="simple">
-<li><p>Uploading and placing a structure</p></li>
-<li><p>Slicing a structure to see inside</p></li>
-<li><p>Floor workzones</p></li>
+<li><p><strong>Upload GLB:</strong> a GLB file exported in metres with Y up. <strong>File requirements and sample</strong> has a sample model and a <strong>Model preparation guide</strong>.</p></li>
+<li><p><strong>Generate with AI:</strong> describe a simple object, for example “A blue shed, 12 m wide, 8 m long and 6 m high”, select <strong>Generate draft</strong>, and refine it before saving. This works for sheds, site offices, containers, walls and tanks.</p></li>
 </ul>
-</div>
+</li>
+<li><p>Enter a <strong>Model name</strong>. Under <strong>Exclude parts</strong>, untick any parts of the model you don’t need.</p></li>
+<li><p>Check the floors SMART found under <strong>Confirm floors</strong>. For each one you can keep it, ignore it or edit it, including its name and walking surface. Select <strong>Add floor</strong> for any it missed.</p></li>
+<li><p>Choose whether to <strong>Place on map</strong> now (enter the latitude, longitude and elevation) or add it to the table as a model to place later.</p></li>
+<li><p>Select <strong>Upload model</strong>.</p></li>
+</ol>
 <div class="screenshot-placeholder admonition">
 <p class="admonition-title">Screenshot</p>
-<p>Structures and floors</p>
+<p>Adding a structure, with the model preview and floors</p>
 </div>
+</section>
+<section id="placing-and-moving-a-structure">
+<h3>Placing and moving a structure<a class="headerlink" href="#placing-and-moving-a-structure" title="Link to this heading">¶</a></h3>
+<p>Drag a model from the <strong>Structures</strong> table onto the map to place it there. Each placement is a map instance, so one model can be placed several times.</p>
+<p>While you are placing an instance, the <strong>Structure placement</strong> panel lets you <strong>Move</strong>, <strong>Rotate</strong> and change the <strong>Height</strong>, or type an exact <strong>Longitude</strong>, <strong>Latitude</strong>, <strong>Heading</strong> and <strong>Elevation</strong>. Turn on <strong>Snap to ground</strong> to sit it on the terrain. Select <strong>Save placement</strong> when it is right, and <strong>Lock placement</strong> to stop it being moved by accident.</p>
+<p>Use <strong>Go to</strong> on an instance in the table to fly to it, and <strong>Adjust</strong> to move it again.</p>
+</section>
+<section id="floors-and-floor-zones">
+<h3>Floors and floor zones<a class="headerlink" href="#floors-and-floor-zones" title="Link to this heading">¶</a></h3>
+<p>In <strong>Map Layers</strong>, each structure has its own section. Show or hide the parts of each floor, and use the cutaway to see inside.</p>
+<p>To create workzones for a floor, choose the floor under <strong>Structure floors</strong> and select <strong>Create floor workzone</strong>, or <strong>Assign zone</strong> to link an existing zone. <strong>Show floor zones</strong> shows them on the map.</p>
+</section>
 </section>
 <section id="beacons">
 <h2>Beacons<a class="headerlink" href="#beacons" title="Link to this heading">¶</a></h2>
-<p>Place Bluetooth beacons so SMART can locate resources where GPS is weak.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This section is being written. It will cover:</p>
-<ul class="simple">
-<li><p>Placing a beacon on the map</p></li>
-<li><p>Beacon labels and range rings</p></li>
-<li><p>The Beacons table</p></li>
-</ul>
-</div>
+<p>Bluetooth beacons let SMART locate people where GPS doesn’t reach, such as inside buildings. SMART adds a beacon to the <strong>Beacons</strong> table when a tracking device first detects it. Give it a surveyed position so SMART can use it.</p>
+<ol class="arabic simple">
+<li><p>Select <strong>Structures</strong> in the navigation panel.</p></li>
+<li><p>In the <strong>Beacons</strong> table, select <strong>Place</strong> on the beacon’s row.</p></li>
+<li><p>Enter the surveyed <strong>Longitude (degrees)</strong>, <strong>Latitude (degrees)</strong> and <strong>Surveyed mounting elevation (metres)</strong>, then select <strong>Save beacon</strong>. The elevation is the beacon’s height in the project’s survey datum, not its height above the ground.</p></li>
+</ol>
+<p>Use <strong>Move</strong> to correct a position, <strong>Disable</strong> to stop SMART using a beacon, and <strong>Delete</strong> to remove it. A deleted beacon isn’t added again when devices detect it.</p>
+<p>To show beacons, their labels and their range rings on the map, use the <strong>Beacons</strong> section in <a class="reference internal" href="../map/index.html#map-layers"><span class="std std-ref">Map layers</span></a>.</p>
 <div class="screenshot-placeholder admonition">
 <p class="admonition-title">Screenshot</p>
-<p>Beacons</p>
+<p>The Beacons table</p>
 </div>
 </section>
 </section>
@@ -625,11 +617,9 @@ physical occupancy report.</p>
             <ul>
 <li><a class="reference internal" href="#">Zones and Structures</a><ul>
 <li><a class="reference internal" href="#workzones">Workzones</a><ul>
-<li><a class="reference internal" href="#creating-workzones">Creating Workzones</a><ul>
+<li><a class="reference internal" href="#creating-workzones">Creating Workzones</a></li>
 <li><a class="reference internal" href="#editing-workzones">Editing Workzones</a></li>
 <li><a class="reference internal" href="#uploading-workzones">Uploading Workzones</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#activity-assignment">Activity Assignment</a></li>
 <li><a class="reference internal" href="#workzone-types">Workzone Types</a></li>
 <li><a class="reference internal" href="#time-phased-workzones">Time-Phased Workzones</a></li>
@@ -646,12 +636,16 @@ physical occupancy report.</p>
 <li><a class="reference internal" href="#breach-history">Breach History</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#exclusion-rules">Exclusion Rules</a></li>
 <li><a class="reference internal" href="#alarm-buzzer">Alarm Buzzer</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#alert-zones">Alert zones</a></li>
-<li><a class="reference internal" href="#structures-and-floors">Structures and floors</a></li>
+<li><a class="reference internal" href="#structures-and-floors">Structures and floors</a><ul>
+<li><a class="reference internal" href="#adding-a-structure">Adding a structure</a></li>
+<li><a class="reference internal" href="#placing-and-moving-a-structure">Placing and moving a structure</a></li>
+<li><a class="reference internal" href="#floors-and-floor-zones">Floors and floor zones</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#beacons">Beacons</a></li>
 </ul>
 </li>

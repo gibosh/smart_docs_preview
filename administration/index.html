@@ -266,14 +266,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#map-modes">Map modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#timeline">Timeline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#map-layers">Map layers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../map/index.html#map-tools">Map Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map/index.html#map-tools">Map tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#filters-and-search">Filters and search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map/index.html#legend">Legend</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#weather">Weather</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../safety/index.html">Safety and Alerts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../safety/index.html#how-alerts-work">How alerts work</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../safety/index.html#alert-management">Alert Management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../safety/index.html#alert-workflows-and-sos">Alert workflows and SOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../safety/index.html#alert-workflows">Alert workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../safety/index.html#breach-and-sos-history">Breach and SOS history</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../resources/index.html">Resources and Crews</a><ul>
@@ -293,12 +296,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tasks/index.html">Tasks and Schedule</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#uploading-a-schedule">Uploading a schedule</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#schedule-analysis">Schedule Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#reading-the-gantt-chart">Reading the Gantt chart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#assigning-tasks-to-zones">Assigning tasks to zones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#assigning-resources-to-tasks">Assigning resources to tasks</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../analytics/index.html">Analytics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#opening-analytics">Opening Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#choosing-dates-and-resources">Choosing dates and resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#insights">Insights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#project-health">Project Health</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#operations">Operations</a></li>
@@ -316,7 +321,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../reference/index.html#glossary">Glossary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../reference/index.html#troubleshooting">Troubleshooting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/index.html#what-s-new">What’s new</a></li>
 </ul>
 </li>
 </ul>
@@ -350,155 +354,154 @@
         </div>
         <article role="main" id="furo-main-content">
           
-<p class="page-eyebrow"><span>Administration</span><span class="page-updated">Updated 23 Nov 2026</span></p>
+<p class="page-eyebrow"><span>Administration</span><span class="page-updated">Updated 24 Nov 2026</span></p>
 <section id="administration">
 <h1>Administration<a class="headerlink" href="#administration" title="Link to this heading">¶</a></h1>
-<p>Administrators set up each project: its settings, its tracking devices and who can see and change what. You only see these options in the Main Menu if your account has administrator permissions.</p>
+<p>Administrators set up each project: its settings, its tracking devices and roles, and who can see and change what. These options are in the Main Menu (select the SMART logo in the navigation panel). You only see the ones your permissions allow.</p>
 <section id="project-settings">
 <h2>Project Settings<a class="headerlink" href="#project-settings" title="Link to this heading">¶</a></h2>
-<div class="needs-review admonition">
-<p class="admonition-title">Needs review</p>
-<p>Carried over from the previous guide and not yet checked against the current app.</p>
-</div>
-<p>Project Managers can update some key project settings, such as the geofence or shift times, through the Project Settings menu.</p>
+<p>Open the Main Menu and select <strong>Project Settings</strong> under <strong>Project</strong>.</p>
 <section id="general">
 <h3>General<a class="headerlink" href="#general" title="Link to this heading">¶</a></h3>
+<p>Change the <strong>Project Name</strong> and the project’s <strong>Timezone</strong>. Times across SMART, including alert rule schedules, use this time zone unless a user chooses <strong>Local</strong> time in their display settings.</p>
+</section>
+<section id="schedule">
+<h3>Schedule<a class="headerlink" href="#schedule" title="Link to this heading">¶</a></h3>
+<p>Shows the <strong>Current Schedule version</strong> (the one SMART compares site activity with) and the <strong>Baseline Schedule version</strong>. Contact LWARE support to change either.</p>
+<p>Under <strong>Schedule Versions</strong> you can see every schedule uploaded to the project, with its tasks, resources and zone assignments. To remove old versions, tick them and select <strong>Delete Selected</strong>. This deletes their P6 data and assignments for good. You can’t delete the current version.</p>
 <div class="screenshot-placeholder admonition">
 <p class="admonition-title">Screenshot</p>
-<p>Adjusting the general project settings</p>
+<p>The Schedule tab in Project Settings</p>
 </div>
-<p>You can adjust the name of the project or the default project timezone.</p>
 </section>
 <section id="work-day">
 <h3>Work Day<a class="headerlink" href="#work-day" title="Link to this heading">¶</a></h3>
-<div class="screenshot-placeholder admonition">
-<p class="admonition-title">Screenshot</p>
-<p>Adjusting shift times for a project</p>
-</div>
-<p>You can adjust the start and end times of the shift. This allows SMART to provide better productivity estimates.</p>
-<p>SMART currently only supports one configured shift for a project. If a schedule has been uploaded to a project, more precise details will be used in the analytics view.</p>
+<p>Set the <strong>Shift Start</strong> and <strong>Shift End</strong> times. SMART uses the shift to estimate productivity and to set where the timeline starts when you jump to a day. If a schedule has been uploaded, Analytics uses the schedule’s calendars instead where they are available.</p>
 </section>
 <section id="geofence">
 <h3>Geofence<a class="headerlink" href="#geofence" title="Link to this heading">¶</a></h3>
+<p>The geofence is the area where SMART tracks devices. Outside it, devices don’t record routine tracking data, so staff aren’t tracked if they take a device home.</p>
+<p>The geofence is made up of one or more project zones:</p>
+<ul class="simple">
+<li><p><strong>Add polygon</strong> or <strong>Add rectangle</strong> to draw a zone. Tracking is recorded inside any zone marked <strong>Active</strong>. Inactive zones show in grey.</p></li>
+<li><p><strong>Cut out polygon</strong> or <strong>Cut out rectangle</strong> to remove an area, such as a neighbouring property, from every zone. Check the <strong>Cut-out preview</strong>, then select <strong>Apply cut-out to draft</strong>.</p></li>
+<li><p>Select a zone in the list to edit its corners, <strong>Zoom</strong> to it or <strong>Delete</strong> it. <strong>Fit project</strong> zooms to the whole geofence.</p></li>
+</ul>
+<p>Save your changes when you are done. They apply to new data only; data already recorded stays as it is. SOS alerts are always recorded, including outside the geofence and inside cut-outs.</p>
 <div class="screenshot-placeholder admonition">
 <p class="admonition-title">Screenshot</p>
-<p>Editing the geofence for a project</p>
+<p>Editing the project geofence</p>
 </div>
-<p>Any devices outside of the project geofence will not upload data to SMART. For privacy reasons, this helps ensure that your staff are not tracked if they accidentally remove devices from the projecct site.</p>
-<p>You can adjust the project geofence here at any time.</p>
 </section>
 </section>
 <section id="device-management">
 <h2>Device Management<a class="headerlink" href="#device-management" title="Link to this heading">¶</a></h2>
-<div class="needs-review admonition">
-<p class="admonition-title">Needs review</p>
-<p>Carried over from the previous guide and not yet checked against the current app.</p>
-</div>
-<p>SMART has a completely self-service interface for managing which resource any given device is assigned to. To get the best results out of SMART, it is important to use all your devices and ensure that all resources on site are covered.</p>
+<p>Open the Main Menu and select <strong>Device Management</strong> under <strong>Project</strong>. Every tracking device is assigned to a resource with a role and a callsign. Keep the assignments up to date as devices move between people and machines, so SMART reports against the right resource.</p>
 <section id="device-status">
 <h3>Device status<a class="headerlink" href="#device-status" title="Link to this heading">¶</a></h3>
-<p>Status shows battery, a location pin and current zones. Hover the pin for coverage: green is inside, red outside and yellow pending triangulation. Position shows the last retained GPS fix; pending devices also show their latest Contact time.</p>
-<p>Click the pin to show that position on the map, or click a zone to go to it. Outside or locationless contacts clear current zones while preserving the last retained position. Power-off and external-power warnings appear separately.</p>
+<p>The status column shows each device’s battery, position and current zones.</p>
+<ul class="simple">
+<li><p>Hover over the location pin to see whether the device is inside the geofence (green), outside it (red) or waiting for a position (yellow), and when it last reported.</p></li>
+<li><p>Select the pin to show the device’s last position on the map, or select a zone to go to it.</p></li>
+<li><p><strong>Powered off</strong> and <strong>External power disconnected</strong> warnings show when they apply.</p></li>
+</ul>
 </section>
 <section id="assigned-resources">
-<h3>Assigned Resources<a class="headerlink" href="#assigned-resources" title="Link to this heading">¶</a></h3>
-<p>The Assigned tab shows all currently assigned resources for the project.</p>
-<p>Each assignment has a role and a callsign. The callsign identifies the resource for that assignment, so a device can use a different callsign when it is reassigned.</p>
-<p>If a device has been removed from a resource and is no longer in use, it should be unassigned. Click on the ⋮ button in the Action column, and then select ‘Unassign Device’.</p>
+<h3>Assigned resources<a class="headerlink" href="#assigned-resources" title="Link to this heading">¶</a></h3>
+<p>The <strong>Assigned</strong> tab lists every device in use, grouped by root role, with its role and callsign.</p>
+<ul class="simple">
+<li><p><strong>Unassign Device:</strong> in the row’s <strong>Actions</strong> menu, when a device is taken off a resource and not reused.</p></li>
+<li><p><strong>View Device History:</strong> see each callsign and role the device has had, with dates.</p></li>
+<li><p><strong>Reassign Selected:</strong> tick devices and give them a new role or callsign in <strong>Bulk Reassignment</strong>. You can backdate the change to when it really happened. Backdating replaces any assignments after that date.</p></li>
+<li><p><strong>Unassign Selected</strong>, <strong>Export CSV</strong> and <strong>Export as upload</strong> work on the ticked devices or the whole list.</p></li>
+</ul>
+<p>A callsign belongs to an assignment, so a device can have a different callsign each time it is reassigned. Earlier assignments keep their callsigns, and past reports show the right names.</p>
 </section>
 <section id="free-devices">
-<h3>Free Devices<a class="headerlink" href="#free-devices" title="Link to this heading">¶</a></h3>
-<p>The Free tab shows all SMART devices that are not currently in use. These can be assigned to a resource at any time.</p>
-<section id="assigning-a-device">
-<h4>Assigning a Device<a class="headerlink" href="#assigning-a-device" title="Link to this heading">¶</a></h4>
-<p>Click on the ⋮ button in the Action column, and then select ‘Assign Device to Resource’.</p>
-<p>Enter the callsign, choose ‘Select Role’, and select a role from the project hierarchy. Click ‘Assign Role’ to save the assignment.</p>
-</section>
-<section id="assign-in-bulk">
-<h4>Assign in Bulk<a class="headerlink" href="#assign-in-bulk" title="Link to this heading">¶</a></h4>
-<p>If you need to assign a large number of devices at once, it might be easier to use the bulk assignment function. Click on the ‘+ Assign in Bulk’ button, and then download the template spreadsheet. Fill in the resource details, save the file, and reupload the file.</p>
-</section>
+<h3>Free devices<a class="headerlink" href="#free-devices" title="Link to this heading">¶</a></h3>
+<p>The <strong>Free</strong> tab lists the project’s devices that aren’t in use.</p>
+<p>To assign one, select <strong>Assign Device to Resource</strong> in its <strong>Actions</strong> menu. Enter a <strong>Callsign</strong>, choose <strong>Select Role</strong>, pick the role and select <strong>Assign Role</strong>. If the role doesn’t match the kind of device (for example a personnel role on a plant tracker), SMART warns you.</p>
+<p>To assign many devices at once, select <strong>Assign in Bulk</strong>:</p>
+<ol class="arabic simple">
+<li><p>Download the template spreadsheet.</p></li>
+<li><p>Fill in each <strong>Device ID</strong>, <strong>Role</strong> and <strong>Callsign</strong>. Use the role ID if two roles share a name. Save the file as CSV.</p></li>
+<li><p>Upload the file, match its columns to the device fields, and check the preview. Rows with an unknown device ID are removed.</p></li>
+<li><p>Select <strong>Assign</strong>.</p></li>
+</ol>
+<div class="screenshot-placeholder admonition">
+<p class="admonition-title">Screenshot</p>
+<p>The Free tab in Device Management</p>
+</div>
 </section>
 <section id="roles">
 <h3>Roles<a class="headerlink" href="#roles" title="Link to this heading">¶</a></h3>
-<p>A role represents a type of equipment or job function on site.</p>
-<p>Roles can have a parent role. A role without a parent is a root role, and the Roles tab groups its descendants beneath it. For example, <code class="docutils literal notranslate"><span class="pre">plant</span></code> can contain <code class="docutils literal notranslate"><span class="pre">Excavator</span></code>, and <code class="docutils literal notranslate"><span class="pre">personnel</span></code> can contain <code class="docutils literal notranslate"><span class="pre">Operator</span></code>.</p>
-<p>SMART uses the root role to recognise plant and personnel throughout the map, analytics, and schedule integration. Keep equipment beneath the <code class="docutils literal notranslate"><span class="pre">plant</span></code> root and people beneath the <code class="docutils literal notranslate"><span class="pre">personnel</span></code> root, including when using intermediate parent roles.</p>
-<section id="creating-a-new-role">
-<h4>Creating a new Role<a class="headerlink" href="#creating-a-new-role" title="Link to this heading">¶</a></h4>
-<p>To add a new role to the project, click ‘Add Role’ in the top right of the table. Enter the role name, choose its parent role, and set its icon, costs, and fuel consumption as needed. Leave ‘Parent Role’ empty to create a root role.</p>
-</section>
-<section id="editing-a-role">
-<h4>Editing a Role<a class="headerlink" href="#editing-a-role" title="Link to this heading">¶</a></h4>
-<p>You can change the name, parent role, icon, costs, or fuel consumption associated with a role. Changing its parent also changes the hierarchy for any child roles. Roles with assignments or child roles cannot be deleted.</p>
-</section>
-<section id="importing-from-schedule">
-<h4>Importing from Schedule<a class="headerlink" href="#importing-from-schedule" title="Link to this heading">¶</a></h4>
-<p>If you have <a class="reference internal" href="../tasks/index.html#schedule-analysis"><span class="std std-ref">uploaded a schedule</span></a> to SMART, you can import P6 resources as SMART roles to quickstart your project management. Review the parent role for each imported role before confirming the import.</p>
-</section>
-</section>
-<section id="callsigns">
-<h3>Callsigns<a class="headerlink" href="#callsigns" title="Link to this heading">¶</a></h3>
-<p>A callsign identifies a resource during its device assignment. Reassigning a device preserves the callsign on each earlier assignment so historical reports retain the correct label.</p>
+<p>A role is a type of equipment or job, such as “Excavator” or “Traffic Controller”. Roles sit in a tree: a role without a parent is a root role, and the <strong>Roles</strong> tab groups each root’s roles beneath it.</p>
+<p>SMART uses the root roles to tell plant from personnel on the map, in Analytics and in the schedule. Keep equipment under the plant root and people under the personnel root, even when you add roles in between.</p>
+<ul class="simple">
+<li><p><strong>Add Role:</strong> enter the <strong>Role Name</strong>, choose a <strong>Parent Role</strong> (leave it empty for a root role), and <strong>Choose Icon</strong>. For plant, you can add the <strong>Model</strong>, <strong>Operating Weight (Tonnes)</strong>, <strong>Cost</strong> per hour and <strong>Fuel Consumption (L/hr)</strong> when idle and working. Analytics uses the costs and fuel figures.</p></li>
+<li><p><strong>Edit Role:</strong> change any of these. Moving a role to a new parent moves its child roles too.</p></li>
+<li><p><strong>Delete Role:</strong> only for roles with no assignments and no child roles.</p></li>
+<li><p><strong>Import from Schedule:</strong> if you have <a class="reference internal" href="../tasks/index.html#uploading-a-schedule"><span class="std std-ref">uploaded a schedule</span></a>, select the schedule’s resources to create matching roles, check the parent of each, and select <strong>Confirm</strong>.</p></li>
+</ul>
+<p>Zone types are managed in the <strong>Zone Types</strong> tab. See <a class="reference internal" href="../zones/index.html#workzone-types"><span class="std std-ref">Workzone Types</span></a>.</p>
 </section>
 </section>
 <section id="user-management">
 <h2>User Management<a class="headerlink" href="#user-management" title="Link to this heading">¶</a></h2>
-<div class="needs-review admonition">
-<p class="admonition-title">Needs review</p>
-<p>Carried over from the previous guide and not yet checked against the current app.</p>
-</div>
-<p>SMART is best when working together! Once your project has been setup, you can invite friends and colleagues to join you in the platform.</p>
+<p>Open the Main Menu and select <strong>Users</strong> under <strong>Users</strong> to see everyone with access to the project.</p>
 <div class="screenshot-placeholder admonition">
 <p class="admonition-title">Screenshot</p>
-<p>User management table in SMART</p>
+<p>The Users table</p>
 </div>
-<p>In the Users tab, you can see everyone who currently has access to your project; and invite new users to the platform.</p>
 <section id="adding-new-users">
 <h3>Adding New Users<a class="headerlink" href="#adding-new-users" title="Link to this heading">¶</a></h3>
-<p>To add someone new to your project, click the Add User button.</p>
-<div class="screenshot-placeholder admonition">
-<p class="admonition-title">Screenshot</p>
-<p>Creating a new user</p>
-</div>
-<p>Enter in the email address of whoever you want to invite to SMART. Every user is assigned to a permission group, which controls what they can and cannot do within the platform.</p>
-<p>By default, SMART comes with three permission groups:</p>
-<ul class="simple">
-<li><p>Administrator: full access to the platform. Administrators can configure key project settings, and grant access to new users.</p></li>
-<li><p>SMART Coordinator: access to device management. This is a great role for supervisors on your project – they are able to manage device assignments but cannot add new users to the project.</p></li>
-<li><p>SMART Read-Only Access: these users are able to browse through project data but cannot make any changes to the platform.</p></li>
-</ul>
-<p>Once a user is added to the project, they will get an email inviting them to setup their account:</p>
-<div class="screenshot-placeholder admonition">
-<p class="admonition-title">Screenshot</p>
-<p>An example of the Welcome to SMART email</p>
-</div>
-<p>Each SMART project has a limited number of seats, depending on your current subscription plan. If you need to add more people to your project, contact us at <code class="docutils literal notranslate"><span class="pre">sales&#64;lwanalytics.com</span></code>.</p>
+<ol class="arabic simple">
+<li><p>Select <strong>Add User</strong>.</p></li>
+<li><p>Enter their <strong>Email</strong> and <strong>Name</strong>, and choose their <strong>Permission groups</strong>.</p></li>
+<li><p>Select <strong>Create</strong>. SMART sends them a welcome email with a link to set up their account.</p></li>
+</ol>
+<p>To change someone’s details or groups, select <strong>Edit user</strong>. To take away their access, select them and select <strong>Remove User</strong>.</p>
+<p>Each project has a set number of seats, depending on its subscription. To add more, contact LWARE.</p>
 </section>
-<section id="permission-management">
-<h3>Permission Management<a class="headerlink" href="#permission-management" title="Link to this heading">¶</a></h3>
-<p>For most projects, the default permission groups should work fine, but if you want to create fine-grained access controls, you can manage permissions within the User Groups tab.</p>
+<section id="permission-groups">
+<h3>Permission groups<a class="headerlink" href="#permission-groups" title="Link to this heading">¶</a></h3>
+<p>Every user belongs to a permission group. New projects have three:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Group</p></th>
+<th class="head"><p>Can</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Administrator</strong></p></td>
+<td><p>Do everything, including changing project settings and adding users</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SMART Coordinator</strong></p></td>
+<td><p>Manage devices and assignments, but not users</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>SMART Read-Only Access</strong></p></td>
+<td><p>View project data without changing anything</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>To set up your own groups, open <strong>User Groups</strong> under <strong>Users</strong> in the Main Menu and select <strong>New group</strong>. Give the group a name and choose its <strong>Access scope</strong>:</p>
+<ul class="simple">
+<li><p><strong>Project-wide:</strong> pick the actions members can take across the whole project: <strong>View SMART</strong>, <strong>Manage SMART</strong>, <strong>View schedules</strong>, <strong>Upload schedules</strong> and <strong>Manage users</strong>.</p></li>
+<li><p><strong>Selected role branches:</strong> members get read-only access to the resources and work in the role branches you choose, including roles added to those branches later. Turn on <strong>View all project safety alerts</strong> if they also need to see every breach and SOS.</p></li>
+</ul>
+<p>If your organisation signs in to SMART with company accounts, choose the <strong>Default group for new enterprise sign-ins</strong>: the access people get the first time they sign in to the project.</p>
 <div class="screenshot-placeholder admonition">
 <p class="admonition-title">Screenshot</p>
-<p>User groups permission management table in SMART</p>
+<p>Creating a permission group</p>
 </div>
 </section>
 </section>
 <section id="recommendations-and-videos">
 <h2>Recommendations and videos<a class="headerlink" href="#recommendations-and-videos" title="Link to this heading">¶</a></h2>
-<p>Act on SMART’s set-up recommendations and manage the project’s training videos.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This section is being written. It will cover:</p>
-<ul class="simple">
-<li><p>Reading and acting on recommendations</p></li>
-<li><p>Adding training videos</p></li>
-</ul>
-</div>
-<div class="screenshot-placeholder admonition">
-<p class="admonition-title">Screenshot</p>
-<p>Recommendations and videos</p>
-</div>
+<p>Open the Main Menu and select <strong>Recommendations</strong> under <strong>Account</strong> to see what is left to set up on the project, such as assigning devices, uploading a schedule, creating work areas, adding costs to roles and setting up breach alerts. Select <strong>Go</strong> beside a recommendation to open the right screen. When there is nothing left, SMART says the project is fully set up.</p>
+<p><strong>Videos</strong> opens the <strong>Training Videos</strong> list. Select <strong>Play Video</strong> to watch one.</p>
 </section>
 </section>
 
@@ -560,30 +563,21 @@
 <li><a class="reference internal" href="#">Administration</a><ul>
 <li><a class="reference internal" href="#project-settings">Project Settings</a><ul>
 <li><a class="reference internal" href="#general">General</a></li>
+<li><a class="reference internal" href="#schedule">Schedule</a></li>
 <li><a class="reference internal" href="#work-day">Work Day</a></li>
 <li><a class="reference internal" href="#geofence">Geofence</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#device-management">Device Management</a><ul>
 <li><a class="reference internal" href="#device-status">Device status</a></li>
-<li><a class="reference internal" href="#assigned-resources">Assigned Resources</a></li>
-<li><a class="reference internal" href="#free-devices">Free Devices</a><ul>
-<li><a class="reference internal" href="#assigning-a-device">Assigning a Device</a></li>
-<li><a class="reference internal" href="#assign-in-bulk">Assign in Bulk</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#roles">Roles</a><ul>
-<li><a class="reference internal" href="#creating-a-new-role">Creating a new Role</a></li>
-<li><a class="reference internal" href="#editing-a-role">Editing a Role</a></li>
-<li><a class="reference internal" href="#importing-from-schedule">Importing from Schedule</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#callsigns">Callsigns</a></li>
+<li><a class="reference internal" href="#assigned-resources">Assigned resources</a></li>
+<li><a class="reference internal" href="#free-devices">Free devices</a></li>
+<li><a class="reference internal" href="#roles">Roles</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#user-management">User Management</a><ul>
 <li><a class="reference internal" href="#adding-new-users">Adding New Users</a></li>
-<li><a class="reference internal" href="#permission-management">Permission Management</a></li>
+<li><a class="reference internal" href="#permission-groups">Permission groups</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#recommendations-and-videos">Recommendations and videos</a></li>

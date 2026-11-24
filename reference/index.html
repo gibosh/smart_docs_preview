@@ -266,14 +266,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#map-modes">Map modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#timeline">Timeline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#map-layers">Map layers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../map/index.html#map-tools">Map Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map/index.html#map-tools">Map tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#filters-and-search">Filters and search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map/index.html#legend">Legend</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#weather">Weather</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../safety/index.html">Safety and Alerts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../safety/index.html#how-alerts-work">How alerts work</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../safety/index.html#alert-management">Alert Management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../safety/index.html#alert-workflows-and-sos">Alert workflows and SOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../safety/index.html#alert-workflows">Alert workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../safety/index.html#breach-and-sos-history">Breach and SOS history</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../resources/index.html">Resources and Crews</a><ul>
@@ -293,12 +296,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tasks/index.html">Tasks and Schedule</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#uploading-a-schedule">Uploading a schedule</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#schedule-analysis">Schedule Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#reading-the-gantt-chart">Reading the Gantt chart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#assigning-tasks-to-zones">Assigning tasks to zones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#assigning-resources-to-tasks">Assigning resources to tasks</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../analytics/index.html">Analytics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#opening-analytics">Opening Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#choosing-dates-and-resources">Choosing dates and resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#insights">Insights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#project-health">Project Health</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#operations">Operations</a></li>
@@ -316,7 +321,6 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#glossary">Glossary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#what-s-new">What’s new</a></li>
 </ul>
 </li>
 </ul>
@@ -350,56 +354,157 @@
         </div>
         <article role="main" id="furo-main-content">
           
-<p class="page-eyebrow"><span>Reference</span><span class="page-updated">Updated 23 Nov 2026</span></p>
+<p class="page-eyebrow"><span>Reference</span><span class="page-updated">Updated 24 Nov 2026</span></p>
 <section id="reference">
 <h1>Reference<a class="headerlink" href="#reference" title="Link to this heading">¶</a></h1>
-<p>Definitions of SMART terms, fixes for common problems and recent changes to SMART.</p>
+<p>Definitions of the terms used in SMART, and fixes for common problems.</p>
 <section id="glossary">
 <h2>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">¶</a></h2>
-<p>Plain-language definitions of the terms used in SMART.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This section is being written. It will cover:</p>
-<ul class="simple">
-<li><p>Every term used in these guides, A to Z</p></li>
-</ul>
-</div>
-<div class="screenshot-placeholder admonition">
-<p class="admonition-title">Screenshot</p>
-<p>Glossary</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Term</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Alert</p></td>
+<td><p>A notice that something needs attention: an exclusion zone breach, an SOS or an unplugged device. See <a class="reference internal" href="../safety/index.html"><span class="std std-doc">Safety and Alerts</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Alert rule</p></td>
+<td><p>Says which events raise alerts, on which days and times, and who is contacted.</p></td>
+</tr>
+<tr class="row-even"><td><p>Alert workflow</p></td>
+<td><p>The record of one alert, from when it is raised until it is resolved.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Alert zone</p></td>
+<td><p>A zone that decides who is contacted when an SOS is raised inside it.</p></td>
+</tr>
+<tr class="row-even"><td><p>Basemap</p></td>
+<td><p>The background map: roads and places, or satellite imagery.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Baseline</p></td>
+<td><p>The version of the schedule that progress is measured against.</p></td>
+</tr>
+<tr class="row-even"><td><p>Beacon</p></td>
+<td><p>A Bluetooth beacon that helps locate devices where GPS is weak, such as indoors.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Breach</p></td>
+<td><p>A resource entering an exclusion zone while a rule says it shouldn’t.</p></td>
+</tr>
+<tr class="row-even"><td><p>Callsign</p></td>
+<td><p>The name a resource goes by while a device is assigned to it, such as “EX01”.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Contact</p></td>
+<td><p>A person who receives alerts. Contacts don’t need a SMART login.</p></td>
+</tr>
+<tr class="row-even"><td><p>Crew</p></td>
+<td><p>A named set of roles that work together, used to add resources to schedule tasks.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Data date</p></td>
+<td><p>The date a schedule’s progress was last updated.</p></td>
+</tr>
+<tr class="row-even"><td><p>Device</p></td>
+<td><p>The tracker fitted to a resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Exclusion zone</p></td>
+<td><p>An area that some or all resources must stay out of. Shown as <strong>Restricted</strong> on the map.</p></td>
+</tr>
+<tr class="row-even"><td><p>First responder</p></td>
+<td><p>A contact who receives SMS as well as email for a rule’s breaches and SOS alerts.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Geofence</p></td>
+<td><p>The area where SMART records tracking data.</p></td>
+</tr>
+<tr class="row-even"><td><p>Heatmap</p></td>
+<td><p>A colour overlay in Window mode that shows where resources spent the most time.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Historic mode</p></td>
+<td><p>Shows the site as it was at the time under the timeline cursor.</p></td>
+</tr>
+<tr class="row-even"><td><p>Live mode</p></td>
+<td><p>Shows resources where they are now.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parent zone</p></td>
+<td><p>A larger zone that contains another, used to organise the site into areas.</p></td>
+</tr>
+<tr class="row-even"><td><p>Project</p></td>
+<td><p>One site or job, with its own map, resources, zones and data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Resource</p></td>
+<td><p>A person or piece of equipment that SMART tracks.</p></td>
+</tr>
+<tr class="row-even"><td><p>Role</p></td>
+<td><p>What a resource is or does, such as “Excavator”. Roles form a tree.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Root role</p></td>
+<td><p>The top of a branch of the role tree, such as plant or personnel.</p></td>
+</tr>
+<tr class="row-even"><td><p>SMART Breakdown Structure (SBS)</p></td>
+<td><p>A schedule activity code that links tasks to workzones.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SOS</p></td>
+<td><p>An emergency alert raised by pressing the SOS button on a device.</p></td>
+</tr>
+<tr class="row-even"><td><p>Structure</p></td>
+<td><p>A 3D model of a building or object placed on the map.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Task</p></td>
+<td><p>An activity from the project schedule.</p></td>
+</tr>
+<tr class="row-even"><td><p>Time phasing</p></td>
+<td><p>A setting that shows a workzone only for part of the project.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Window mode</p></td>
+<td><p>Shows every position recorded between the two ends of a time window.</p></td>
+</tr>
+<tr class="row-even"><td><p>Workzone</p></td>
+<td><p>An area where planned work happens. Shown as <strong>Work</strong> on the map.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Zone type</p></td>
+<td><p>A category of zone, such as “Stockpile” or “Laydown”.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </section>
 <section id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">¶</a></h2>
-<p>Fixes for common problems.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This section is being written. It will cover:</p>
+<section id="i-can-t-see-my-project">
+<h3>I can’t see my project<a class="headerlink" href="#i-can-t-see-my-project" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Can’t see a project</p></li>
-<li><p>A resource isn’t moving on the map</p></li>
-<li><p>Times look wrong</p></li>
+<li><p>Check you signed in with the email address you were invited with.</p></li>
+<li><p>On <strong>Select Project</strong>, finished projects show as <strong>Not Active</strong>. They are still there; select one and <strong>Load</strong> it.</p></li>
+<li><p>If the project isn’t listed at all, ask your project’s administrator to add you in <strong>Users</strong>.</p></li>
 </ul>
-</div>
-<div class="screenshot-placeholder admonition">
-<p class="admonition-title">Screenshot</p>
-<p>Troubleshooting</p>
-</div>
 </section>
-<section id="what-s-new">
-<h2>What’s new<a class="headerlink" href="#what-s-new" title="Link to this heading">¶</a></h2>
-<p>Recent changes to SMART.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This section is being written. It will cover:</p>
+<section id="a-resource-isn-t-on-the-map-or-isn-t-moving">
+<h3>A resource isn’t on the map or isn’t moving<a class="headerlink" href="#a-resource-isn-t-on-the-map-or-isn-t-moving" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Release notes, newest first</p></li>
+<li><p><strong>Check the mode.</strong> In Historic or Window mode the map shows the past. Select <strong>Map Mode</strong>, then <strong>Live</strong>. Live mode only appears while the project is active.</p></li>
+<li><p><strong>Check the filters.</strong> If <strong>Clear map filters</strong> is showing, a filter is hiding some resources. Select it to show everyone.</p></li>
+<li><p><strong>Check the layer settings.</strong> In <strong>Map Layers</strong>, <strong>Show personnel</strong> may be off, <strong>Hide charging Personnel devices</strong> may be hiding devices on charge, or <strong>Resource roles</strong> may be limited to some roles.</p></li>
+<li><p><strong>Check the device.</strong> In <strong>Device Management</strong>, the device’s status shows its battery, when it last reported and whether it is inside the geofence. A device that is off, flat or outside the geofence doesn’t report positions.</p></li>
+<li><p><strong>Check the assignment.</strong> A device only shows as a resource while it is assigned. Free devices aren’t on the map.</p></li>
 </ul>
-</div>
-<div class="screenshot-placeholder admonition">
-<p class="admonition-title">Screenshot</p>
-<p>What’s new</p>
-</div>
+</section>
+<section id="times-look-wrong">
+<h3>Times look wrong<a class="headerlink" href="#times-look-wrong" title="Link to this heading">¶</a></h3>
+<p>SMART shows times in the project’s time zone unless you choose <strong>Local</strong> under <strong>Time Zone</strong> in <a class="reference internal" href="../getting-started/index.html#display-settings"><span class="std std-ref">Display settings</span></a>. If you are in a different time zone from the site, check which one is selected.</p>
+</section>
+<section id="nobody-received-an-alert">
+<h3>Nobody received an alert<a class="headerlink" href="#nobody-received-an-alert" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>In <a class="reference internal" href="../safety/index.html#alert-management"><span class="std std-ref">Alert Management</span></a>, check that the zone’s dot is orange or red. Grey means no rule is assigned, and yellow means the rules have no contacts.</p></li>
+<li><p>Check the rule is <strong>Enabled</strong> and that the time of the breach falls within one of its time windows and its active dates.</p></li>
+<li><p>Check the person’s role isn’t in the rule’s <strong>Allowed Resource Roles (Excluded from Alerts)</strong>.</p></li>
+<li><p>Use <strong>Simulate exclusion breach</strong> or <strong>Simulate alert</strong> on the <strong>Zones</strong> screen to preview who would be contacted.</p></li>
+</ul>
+</section>
+<section id="the-map-is-slow">
+<h3>The map is slow<a class="headerlink" href="#the-map-is-slow" title="Link to this heading">¶</a></h3>
+<p>In <strong>Map Layers</strong>, set <strong>Symbols</strong> to <strong>Icons</strong>, set <strong>Terrain quality</strong> to <strong>Performance</strong>, and shorten or turn off <strong>Trails (min)</strong>.</p>
+</section>
 </section>
 </section>
 
@@ -452,8 +557,14 @@
             <ul>
 <li><a class="reference internal" href="#">Reference</a><ul>
 <li><a class="reference internal" href="#glossary">Glossary</a></li>
-<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
-<li><a class="reference internal" href="#what-s-new">What’s new</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#i-can-t-see-my-project">I can’t see my project</a></li>
+<li><a class="reference internal" href="#a-resource-isn-t-on-the-map-or-isn-t-moving">A resource isn’t on the map or isn’t moving</a></li>
+<li><a class="reference internal" href="#times-look-wrong">Times look wrong</a></li>
+<li><a class="reference internal" href="#nobody-received-an-alert">Nobody received an alert</a></li>
+<li><a class="reference internal" href="#the-map-is-slow">The map is slow</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

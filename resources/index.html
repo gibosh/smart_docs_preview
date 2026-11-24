@@ -266,14 +266,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#map-modes">Map modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#timeline">Timeline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#map-layers">Map layers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../map/index.html#map-tools">Map Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map/index.html#map-tools">Map tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#filters-and-search">Filters and search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map/index.html#legend">Legend</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map/index.html#weather">Weather</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../safety/index.html">Safety and Alerts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../safety/index.html#how-alerts-work">How alerts work</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../safety/index.html#alert-management">Alert Management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../safety/index.html#alert-workflows-and-sos">Alert workflows and SOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../safety/index.html#alert-workflows">Alert workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../safety/index.html#breach-and-sos-history">Breach and SOS history</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Resources and Crews</a><ul>
@@ -293,12 +296,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tasks/index.html">Tasks and Schedule</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#uploading-a-schedule">Uploading a schedule</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#schedule-analysis">Schedule Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#reading-the-gantt-chart">Reading the Gantt chart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#assigning-tasks-to-zones">Assigning tasks to zones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/index.html#assigning-resources-to-tasks">Assigning resources to tasks</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../analytics/index.html">Analytics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#opening-analytics">Opening Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#choosing-dates-and-resources">Choosing dates and resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#insights">Insights</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#project-health">Project Health</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../analytics/index.html#operations">Operations</a></li>
@@ -316,7 +321,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../reference/index.html#glossary">Glossary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../reference/index.html#troubleshooting">Troubleshooting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/index.html#what-s-new">What’s new</a></li>
 </ul>
 </li>
 </ul>
@@ -350,74 +354,93 @@
         </div>
         <article role="main" id="furo-main-content">
           
-<p class="page-eyebrow"><span>Resources and Crews</span><span class="page-updated">Updated 23 Nov 2026</span></p>
+<p class="page-eyebrow"><span>Resources and Crews</span><span class="page-updated">Updated 24 Nov 2026</span></p>
 <section id="resources-and-crews">
 <h1>Resources and Crews<a class="headerlink" href="#resources-and-crews" title="Link to this heading">¶</a></h1>
-<p>Resources are the people and equipment SMART tracks. This page covers finding a resource and its details, seeing who is in each zone, grouping resources into crews, and how roles are used.</p>
+<p>Resources are the people and equipment SMART tracks. Each tracking device is assigned to a resource with a role, such as “Excavator” or “Traffic Controller”, and usually a callsign. This page covers finding resources and what they have been doing, seeing who is in each zone, and grouping roles into crews for scheduling.</p>
 <section id="resource-details">
 <h2>Resource details<a class="headerlink" href="#resource-details" title="Link to this heading">¶</a></h2>
-<p>Look up any tracked person or machine: where it is, what role it has and what it has been doing.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This section is being written. It will cover:</p>
-<ul class="simple">
-<li><p>The Resources table</p></li>
-<li><p>Opening a resource’s details</p></li>
-<li><p>Device status and battery</p></li>
-</ul>
+<p>Select <strong>Resources</strong> in the navigation panel to open the resources table. Resources are grouped by role, with the number in each role beside its name. Use <strong>Search resources</strong> to find a resource by name, callsign or role, and <strong>Refresh resources</strong> to reload the table.</p>
+<p>For each resource and role, the table shows:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>What it shows</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Resource</strong></p></td>
+<td><p>Callsign or device, under its role</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Alerts</strong></p></td>
+<td><p>SOS alerts and breaches in the selected time period. Select a badge to see the details.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Status</strong></p></td>
+<td><p>Whether the device is reporting now. In Historic mode this is <strong>Recorded status</strong>, the status at the time on the timeline.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Recorded</strong></p></td>
+<td><p>Hours recorded on site in the selected time period, counting completed hours only</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Scheduled</strong></p></td>
+<td><p>Hours planned for the role in the schedule for the same period. Select it to see the tasks.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
+<p>The time period is the one chosen in the summary strip (<strong>24h</strong>, <strong>Week</strong>, <strong>Month</strong>, <strong>All</strong> or <strong>Custom</strong>).</p>
+<p>Select a resource’s menu to:</p>
+<ul class="simple">
+<li><p><strong>Show on map:</strong> fly to the resource.</p></li>
+<li><p><strong>Show Last Recorded Position:</strong> see where a device last reported, even if it isn’t on the map now.</p></li>
+<li><p><strong>Edit Resource Assignment:</strong> change the resource’s <strong>Role</strong> or <strong>Callsign</strong>. You need edit permission.</p></li>
+</ul>
 <div class="screenshot-placeholder admonition">
 <p class="admonition-title">Screenshot</p>
-<p>Resource details</p>
+<p>The resources table grouped by role</p>
 </div>
 </section>
 <section id="live-tracking-by-zone">
 <h2>Live tracking by zone<a class="headerlink" href="#live-tracking-by-zone" title="Link to this heading">¶</a></h2>
-<p>See which resources are in each zone right now.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This section is being written. It will cover:</p>
-<ul class="simple">
-<li><p>Reading the live zone table</p></li>
-<li><p>Jumping to a zone on the map</p></li>
-</ul>
-</div>
+<p>Select <strong>Group Resources by Current Zone</strong> above the resources table to see which zone each resource is in right now, with one table per zone. Use <strong>Search all zone tables</strong> to find a resource across every zone. Select <strong>Return to ungrouped</strong> to go back to the single list.</p>
+<p>This view is in beta.</p>
 <div class="screenshot-placeholder admonition">
 <p class="admonition-title">Screenshot</p>
-<p>Live tracking by zone</p>
+<p>Resources grouped by their current zone</p>
 </div>
 </section>
 <section id="crews">
 <h2>Crews<a class="headerlink" href="#crews" title="Link to this heading">¶</a></h2>
-<p>Group resources into crews so you can assign and follow them together.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This section is being written. It will cover:</p>
+<p>A crew is a named set of roles and how many of each you need, for example two excavators, a spotter and a supervisor. When you assign resources to a schedule task, you can add a whole crew at once instead of adding each role. See <a class="reference internal" href="../tasks/index.html#assigning-resources-to-tasks"><span class="std std-ref">Assigning resources to tasks</span></a>.</p>
+<p>Crews are in the <strong>Resources &amp; Crews</strong> panel, which opens on the left when you assign resources to a task.</p>
+<section id="creating-a-crew">
+<h3>Creating a crew<a class="headerlink" href="#creating-a-crew" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>In <strong>Resources &amp; Crews</strong>, select <strong>Create Crew</strong>.</p></li>
+<li><p>Enter a <strong>Crew Name</strong> and select <strong>Create</strong>.</p></li>
+<li><p>Open the crew’s menu and select <strong>Assign Role Requirement</strong>. Choose a role and the <strong>Quantity</strong> you need, then select <strong>Add</strong>. Repeat for each role.</p></li>
+</ol>
+</section>
+<section id="changing-or-removing-a-crew">
+<h3>Changing or removing a crew<a class="headerlink" href="#changing-or-removing-a-crew" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Creating a crew</p></li>
-<li><p>Adding and removing crew members</p></li>
-<li><p>Disbanding a crew</p></li>
+<li><p><strong>Edit Crew Members:</strong> add roles, change quantities, or select a role’s remove button to take it off. Select <strong>Done</strong> when you finish.</p></li>
+<li><p><strong>Disband Crew:</strong> delete the crew. This doesn’t change any tasks it was already used on.</p></li>
 </ul>
-</div>
 <div class="screenshot-placeholder admonition">
 <p class="admonition-title">Screenshot</p>
-<p>Crews</p>
+<p>The Resources &amp; Crews panel with a crew expanded</p>
 </div>
+</section>
 </section>
 <section id="roles">
 <h2>Roles<a class="headerlink" href="#roles" title="Link to this heading">¶</a></h2>
-<p>Roles describe what each resource is (for example, excavator or traffic controller) and drive filters, colours and analytics.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This section is being written. It will cover:</p>
-<ul class="simple">
-<li><p>The role hierarchy and root roles</p></li>
-<li><p>How roles are used across SMART</p></li>
-</ul>
-</div>
+<p>Roles say what each resource is and are used across SMART: to colour and label resources on the map, to filter, to set who may enter an exclusion zone, to link resources to the schedule, and to group the figures in Analytics.</p>
+<p>Roles form a tree. A broad <strong>root role</strong>, such as “Plant”, contains more specific roles, such as “Excavator” and “Dump Truck”. Filters and reports can work at either level, for example <strong>Filter Root Role</strong> on the map shows every resource under the same root role.</p>
+<p>Project administrators set up roles and assign devices to them in <strong>Device Management</strong>. See <a class="reference internal" href="../administration/index.html"><span class="std std-doc">Administration</span></a>.</p>
 <div class="screenshot-placeholder admonition">
 <p class="admonition-title">Screenshot</p>
-<p>Roles</p>
+<p>The role tree in Device Management</p>
 </div>
 </section>
 </section>
@@ -480,7 +503,11 @@
 <li><a class="reference internal" href="#">Resources and Crews</a><ul>
 <li><a class="reference internal" href="#resource-details">Resource details</a></li>
 <li><a class="reference internal" href="#live-tracking-by-zone">Live tracking by zone</a></li>
-<li><a class="reference internal" href="#crews">Crews</a></li>
+<li><a class="reference internal" href="#crews">Crews</a><ul>
+<li><a class="reference internal" href="#creating-a-crew">Creating a crew</a></li>
+<li><a class="reference internal" href="#changing-or-removing-a-crew">Changing or removing a crew</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#roles">Roles</a></li>
 </ul>
 </li>
